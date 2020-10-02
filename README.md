@@ -1,68 +1,89 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Check out the live version here [Whiner](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+This is a full stack social media app based on twitter's features and design. It uses react on the frontend and redux for state management.
+
+## Backend
+
+I used firebase's admin SDK to get up and running with a backend service.
+
+## Styling
+
+All component based custom CSS without any framework :)
+
+### Current Features
+
+* Authentication
+
+* Create and post
+
+* Delete posts
+
+* Likes and repost other user's posts
+
+* Follow other users
+
+* Custom feed of latest posts from your following list
+
+* Follow suggestions for newly registered users
+
+* Reply to posts
+
+* Notifications on like, comment, reposts
+
+* Mention other users in post using '@'
+
+* Add about me details including location / personal social media etc
+
+* Fully working search bar with autocomplete search results
+
+* View any users profile and all their posts
+
+* View a post and all its comments
+
+* Authentication based access to all features
+
+## Firebase
+
+This app is powered by Firebase utilizing service for Authentication, Database, Storage and Functions.
+
+## Why not put the Firebase functions with this ?
+
+It isn't fully optimized security wise and needs a few more changes design wise.
+
+## Compoments
+
+Most components are fully functional independently. Mock data using JSON server would get them running.
+
+## Build and run
+
+### `npm install`
+
+Installs all the dependencies
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To launch the webpack dev server if you have a data endpoint setup
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## What platform does it work on?
 
-### `npm test`
+As of now, only desktops/laptops or slightly bigger screens. I plan on adding the styling for mobile in the future.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## What features/functionalities I would like to add ?
 
-### `npm run build`
+* Making comments count as actual posts and show relevant comments  on feed.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Un-repost function (I forgot to implement this).
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* More streamlined user feed.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Load as you scroll.
 
-### `npm run eject`
+* Improving some aspects of design including support for mobile and smaller screens.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* Adding like and repost list for a post. [Only needed to be added on frontend].
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Adding delete option for comments.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* Removing a notification if the change which created it was undone(eg after unlike)
