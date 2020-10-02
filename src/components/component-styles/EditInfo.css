@@ -1,0 +1,46 @@
+.edit-all-info-wrapper{
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 45%;
+    transform: translateY(-50%);
+}
+.edit-all-info-wrapper input{
+    width: 60%;
+    padding: 10px;
+    border: none;
+    font-size: 1em;
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 0.4em;
+}
+.whine-view-container h3{
+    color: rgb(46, 153, 224);
+    position: absolute;
+    left: 1%;
+    background-color: white;
+    padding: 10px;
+    top: 1%;
+    border-radius: 5px;
+}
+.inner-info-flex{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    flex-direction: column;
+}
+
+.edit-submit-btn button{
+    margin-top: 1em;
+    background-color: rgb(212, 246, 119);
+    font-size: 0.9em;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

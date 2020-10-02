@@ -1,0 +1,44 @@
+.join-container{
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    right: 25%;
+    transform: translate(50%, -50%);
+    text-align: center;
+}
+.join-container a{
+    text-decoration: none;
+    width: 100%;
+    display: block;
+}
+.headerj img{
+    width: 1.8em;
+    transform: translateX(-450%);
+}
+.join-container .message{
+    font-size: 0.8em;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    transform: translateX(-12%);
+}
+.btn{
+    border: none;
+    outline: none;
+    padding: 5px;
+    margin: 10px auto;
+    border: 1px solid #1DA1F2;
+    width: 40%;
+    border-radius: 20px;
+}
+.join-container .login{
+    background-color: #1DA1F2;
+}
+.join-container .login a{
+    color: white;
+}
+.join-container .signup{
+    background-color: #fff;
+}
+.join-container .signup a{
+    color: black;
+}

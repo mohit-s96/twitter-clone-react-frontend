@@ -1,0 +1,222 @@
+.profile-image-wrapper img{
+    width: 5em;
+    height: 5em;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 50%);
+    border-radius: 2.5em;
+    border: 4px solid #fff;
+}
+.profile-wrapper{
+    position: fixed;
+    box-shadow: 1px 1px white, -1px 0 0.4em gray;
+    top: 10%;
+    right: 5%;
+    width: 20%;
+    border-radius: 15px;
+}
+.profile-info-text{
+    color: #1DA1F2;
+    font-weight: 500;
+    float: left;
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    margin-bottom: 0.4em;
+}
+.secondary-info{
+    margin-bottom: 0.4em;
+    color: #1DA1F2;
+    right: 20%;
+    font-weight: 500;
+    float: left;
+    position: absolute;
+    top: 40%;
+}
+.profile-age-text{
+    color: #1DA1F2;
+    display: inline-block;
+    font-size: 0.9em;
+}
+
+.age-wrapper{
+    margin-top: 30%;
+    text-align: center;
+}
+.followers-count{
+    display: inline-block;
+    margin-top: 0.8em;
+    position: absolute;
+    font-weight: 600;
+    left: 30%;
+    top: 30%;
+}
+.profile-age-text{
+    font-weight: 500;
+}
+.member-since{
+    font-size: 0.7em;
+}
+.following-count{
+    margin-top: 0.8em;
+    display: inline-block;
+    position: absolute;
+    right: 30%;
+    font-weight: 600;
+    top: 30%;
+}
+.profile-info-wrapper{
+    margin-top: 1rem;
+    padding: 10px;
+}
+.profile-image-wrapper{
+    width: 100%;
+    background-color: #1DA1F2;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+.lower-profile{
+    position: relative;
+    margin: 1rem auto;
+    margin-top: 15%;
+    text-align: center;
+}
+.user-name{
+    font-weight: 700;
+    color: #1DA1F2;
+    cursor: pointer;
+}
+.public-user-name{
+    cursor: auto;
+    font-weight: 700;
+    color: #1DA1F2;
+}
+.hidden-input{
+    display: none;
+}
+.image-edit-container svg{
+    position: absolute;
+    color: #1DA1F2;
+    right: 32%;
+    font-size: 0.8em;
+    top: 110px;
+    cursor: pointer;
+}
+.follow-button{
+    position: absolute;
+    outline: none;
+    right: 5%;
+    top: 130px;
+    background-color: #fff;
+    color: #000;
+    font-weight: 700;
+    border: 3px solid #1DA1F2;
+    width: 100px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 0.8em;
+    border-radius: 25px;
+    transition: background-color 0.2s ease-in-out;
+}
+.login-pub-btn{
+    background-color: #fff;
+    color: #1DA1F2;
+}
+.signup-pub-btn{
+    background-color: #fff;
+    color: #1DA1F2;
+    left: 5%;
+}
+.follow-button:hover{
+    background-color: #1DA1F2;
+    color: #fff;
+}
+.red-bg-follow{
+    border: none;
+    background-color: crimson !important;
+}
+.crimson-follow{
+    background-color: crimson !important;
+}
+.public-info-container{
+    position: relative;
+    /* background-color: burlywood; */
+    width: 100%;
+    text-align: center;
+    top: 100px;
+    /* margin-top: 20%; */
+}
+.location-info-wrapper{
+    position: relative;
+    top: 10px;
+    width: 100%;
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    /* margin: 1em; */
+}
+.location-info-wrapper svg{
+    /* position: absolute; */
+    /* text-decoration: none; */
+    color: #1DA1F2;
+}
+.location-info{
+    font-size: 0.8em;
+    color: #1DA1F2;
+    padding-left: 5px;
+}
+.social-text{
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+    font-weight: 500;
+    font-size: 0.9em;
+    background-color: #1DA1F2;
+    color: white;
+    border-radius: 5px;
+    position: relative;
+    top: 10px;
+}
+.websites-link-wrapper{
+    display: flex;
+    position: relative;
+    top: 10px;
+    justify-content: center;
+}
+.websites-link-wrapper svg, .websites-link-wrapper img{
+    margin: 15px;
+    color: #1DA1F2;
+    width: 1em;
+}
+.public-about-container{
+    width: 80%;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* text-align: center; */
+    /* margin-top: 1em; */
+    margin: 0 auto;
+    position: relative;
+    top: 10px;
+}
+.public-about{
+    font-size: 0.8em;
+    /* margin: 0 auto; */
+}
+.age-wrapper svg{
+    position: absolute;
+    color: #1DA1F2;
+    right: 5%;
+    bottom: 1%;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+

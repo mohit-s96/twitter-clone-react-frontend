@@ -1,0 +1,127 @@
+.noti-container{
+    width: 20%;
+    position: absolute;
+    top: 2%;
+    left: 3%;
+    background-color: #1da1f2;
+    border-radius: 10px;
+    display: none;
+    outline: none;
+    z-index: 5;
+}
+.suggestion-container{
+    position: absolute;
+    outline: none;
+    background-color: #1da1f2;
+    border-radius: 10px;
+    top: 10%;
+    left: 0;
+    width: 22%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    transform: translateY(50%);
+    min-height: 3rem;
+    display: block !important;
+}
+.no-suggestions{
+    color: white;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.suggestion-text{
+    font-size: 0.9em;
+    text-align: center;
+    font-weight: 500;
+}
+.suggested-item{
+    display: flex;
+    justify-content: space-evenly;
+}
+.item-image{
+    width: 2.5em;
+    height: 2.5em;
+}
+.item-image img{
+    width: 3em;
+    height: 3em;
+    border-radius: 1.5em;
+    transform: translate(-60%, -10%);
+}
+.suggestion-handle{
+    transform: translate(-50%, 15%);
+    font-weight: 500;
+    width: 35%;
+    color: #1da1f2;
+}
+.suggestion-handle a{
+    text-decoration: none;
+    color: #1da1f2;
+}
+.follow-suggestion{
+    position: relative;
+    background-color: blueviolet;
+}
+.follow-suggested-item{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1da1f2;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    border: none;
+    width: 80px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 0.8em;
+    border-radius: 25px;
+    transition: background-color 0.2s ease-in-out;
+    outline: none;
+}
+.noti-body-wrapper{
+    width: 80%;
+    background-color: honeydew;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 15px;
+}
+.noti-message-container{
+    text-align: center;
+    padding: 12px;
+    font-size: 0.8em;
+    position: relative;
+}
+.noti-message-container a{
+    text-decoration: none;
+    color: #106194;
+    font-weight: 500;
+}
+.blue-noti{
+    padding: 6px 8px 12px 8px;
+    border-radius: 15px;
+    background-color: #1da1f2 !important;
+    color: white !important;
+}
+.noti-time{
+    position: absolute;
+    color: gray;
+    font-size: 0.7em;
+    bottom: 1px;
+    transform: translate(10%, 50%);
+    display: block;
+    right: 5px;
+}
+.noti-message{
+    font-style: italic;
+}
+.show-notis{
+    display: block;
+}
+.noti-whine-style{
+    cursor: pointer;
+    font-style: italic;
+    font-weight: 500;
+    color: #106194;
+}

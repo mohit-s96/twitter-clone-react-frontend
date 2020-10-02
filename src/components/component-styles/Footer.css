@@ -1,0 +1,28 @@
+.footer-container{
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    padding: 1em;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+.footer-flex-main{
+    display: flex;
+    justify-content: center;
+}
+.footer-main{
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-right: 3em;
+    margin-left: 3em;
+}
+.footer-item svg{
+    color: gray;
+}
+.copyright{
+    color: gray;
+    position: absolute;
+    font-size: 12px;
+    right: 1em;
+}

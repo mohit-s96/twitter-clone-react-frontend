@@ -1,0 +1,16 @@
+.loader-container{
+    width: 100%;
+    height: 90vh;
+    align-items: center;
+    position: relative;
+}
+.loader-wrapper{
+    margin: 0 auto;
+    margin-top: 50%;
+    position: absolute;
+    left: 50%;
+    top: -50%;
+}
+.loader-wrapper img{
+    transform: translate(-50%, -120%);
+}

@@ -1,0 +1,155 @@
+.feed-container{
+    max-width: 40%;
+    margin: 0 auto;
+    border: 1px solid #E6ECF0;
+    border-top: none;
+}
+.single-feed-container{
+    margin: 0 auto;
+    border-bottom: 1px solid #E6ECF0;
+    position: relative;
+}
+.handle-container a{
+    text-decoration: none;
+    color: black;
+}
+.one-whine{
+    max-width: 80%;
+    margin: 0.8rem auto;
+    margin-top: 0.1rem;
+    cursor: pointer;
+}
+.fa-container{
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    position: relative;
+    bottom: -10px;
+    border-radius: 18px;
+    cursor: pointer;
+}
+
+.whine-image img{
+    width: 2.8em;
+    height: 2.8em;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1.4em;
+}
+.match{
+    color:#1B7CB8 !important;
+    cursor: pointer;
+}
+.whine-image{
+    width: 3em;
+    position: relative;
+    left: -12%;
+    top: 1.2em;
+}
+.reply:hover{
+    background-color: #1da0f23d;
+}
+.rewhine:hover{
+    background-color: #00ff154b;
+}
+.like:hover{
+    background-color: #fa00d93d;    
+}
+.handle-container{
+    color: rgb(0, 0, 0);
+    font-size: 0.9em;
+    padding: 10px;
+    padding-bottom: 0;
+    margin-bottom: 0.1rem;
+}
+.handle-container .handle-text{
+    font-weight: 700;
+}
+.delete-btn-feed{
+    position: absolute;
+    right: 5%;
+    top: 10%;
+}
+.delete-btn-feed svg{
+    color: #6E7F8D;
+}
+.delete-modal{
+    position: absolute;
+    right: -30px;
+    width: 4rem;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px white, -1px 0 0.4em gray;
+    outline: 0;
+}
+.delete-modal svg{
+    transform: translateX(200%);
+    color: crimson;
+}
+.whine-time{
+    font-size: 0.8em;
+    color:#6E7F8D;
+    /* padding: 10px; */
+}
+.whine-text{
+    color: rgb(0, 0, 0);
+    margin-bottom: 0.4rem;
+    font-size: 0.8em;
+    font-weight: 400;
+    line-height: 1.5em;
+    padding: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+.whine-body-container .engagement-wrapper svg{
+    color: #6E7F8D;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.whine-body-container .engagement-wrapper{
+    color: #6E7F8D;
+    font-size: 0.8em;
+}
+.whine-body-container .engagement-wrapper .engagement-count{
+    padding: 10px;
+}
+.engagement-wrapper{
+    display: flex;
+    justify-content: space-between;
+    z-index: 5;
+}
+.rewhine-icon svg{
+    color: #6E7F8D;
+    /* padding: 10px; */
+    font-size: 0.7em;
+}
+.rewhine-message{
+    color: #6E7F8D;
+    padding: 10px;
+    font-size: 0.7em;
+}
+.rewhine-message-container{
+    transform: translateX(2%);
+}
+.liked{
+    color: #fa00d9 !important;
+}
+.rewhined{
+    color: #00ff15 !important;
+}
+.rickroll{
+    font-size: 0.7em;
+    color: #1B7CB8;
+    position: absolute;
+    right: 15px;
+    bottom: 20%;
+}
+.rickroll a{
+    text-decoration: none;
+    color: #1B7CB8;
+}
