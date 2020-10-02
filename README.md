@@ -52,7 +52,7 @@ This app is powered by Firebase utilizing service for Authentication, Database, 
 
 It isn't fully optimized security wise and needs a few more changes design wise.
 
-## Compoments
+## Components
 
 Most components are fully functional independently. Mock data using JSON server would get them running.
 
