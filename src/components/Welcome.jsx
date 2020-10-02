@@ -10,7 +10,7 @@ function Welcome() {
         <div className="welcome-container-card">
             {/* <div className="header"><img src={favicon} alt="logo"/></div> */}
            <div className="welcome-content">
-           <div className="text-heading">Welcome, To Whiner</div>
+           <div className="text-heading">Welcome, bhvgvvc To Whiner</div>
             <div className="text-content"><FontAwesomeIcon icon={faComments}/>Join today and start complaining</div>
             <div className="text-content"><FontAwesomeIcon icon={faUser}/>Follow people to see why they are sad</div>
            </div>
