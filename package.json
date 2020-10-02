@@ -44,5 +44,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://asia-east2-whiner2-82d5e.cloudfunctions.net/api"
+  "proxy": "your backend"
 }

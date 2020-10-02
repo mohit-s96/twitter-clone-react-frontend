@@ -69,7 +69,7 @@ export const viewOneWhine =(id, handle) => dispatch => {
     if(id.trim().length > 0 && id.trim().length < 25){
         dispatch({type: LOAD_ONE_WHINE});
         let body = {originalAuthor: handle}
-        axios.post(`https://asia-east2-whiner2-82d5e.cloudfunctions.net/api/whines/${id.trim()}`, body)
+        axios.post(`whineroute`, body)
              .then(res => {
                  dispatch({
                      type: ONE_WHINE_LOADED,
