@@ -16,7 +16,7 @@ import axios from 'axios';
 import {SET_AUTHENTICATED} from './redux/types';
 import {logoutUser} from './redux/actions/userActions'
 
-axios.defaults.baseURL = "https://asia-east2-whiner2-82d5e.cloudfunctions.net/api";
+axios.defaults.baseURL = "your url";
 
 const token = localStorage.getItem('jwt-auth');
 if(token){
