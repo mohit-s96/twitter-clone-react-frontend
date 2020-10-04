@@ -9,11 +9,14 @@ import UserHome from './pages/UserHome';
 import NotFound from './pages/NotFound';
 import jwtDecode from 'jwt-decode';
 import AuthRoute from './util/AuthRoute'; 
+import {ActiveRoute} from './util/ActiveRoute'; 
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import axios from 'axios';
 import {SET_AUTHENTICATED} from './redux/types';
 import {logoutUser} from './redux/actions/userActions'
+
+axios.defaults.baseURL = "https://asia-east2-whiner2-82d5e.cloudfunctions.net/api";
 
 const token = localStorage.getItem('jwt-auth');
 if(token){
@@ -33,7 +36,7 @@ function App() {
   return (
     
     <Provider store = {store}>
-      <BrowserRouter forceRefresh={true}>
+      <BrowserRouter>
       <div className="app">
         
             <Switch>
@@ -41,8 +44,8 @@ function App() {
               <Route exact path='/home' component={UserHome} />
               <AuthRoute exact path='/login' component={Login} />
               <AuthRoute exact path='/signup' component={Signup} />
-              <Route exact path='/user/:handle' component={UserProfile}/>
-              <Route path='/:invalid' component={NotFound}/>
+              <ActiveRoute exact path='/user/:handle' component={UserProfile}/>
+              <Route exact path='/:invalid' component={NotFound}/>
             </Switch>
       </div>
       </BrowserRouter>

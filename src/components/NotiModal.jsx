@@ -48,7 +48,11 @@ const NotiModal = (props) => {
                                         ?
                                         <span className='noti-message dont-lose-focus'> rewhined your <span className="noti-whine-style" onClick={() => showWhineFromNoti(x.whineId, props)}>whine</span></span>
                                         :
-                                        null
+                                        (x.type === 'mention')
+                                            ?
+                                            <span className='noti-message dont-lose-focus'> mentioned you in a <span className="noti-whine-style" onClick={() => showMentionFromNoti(x.whineId, props, x.cUser)}>whine</span></span>
+                                            :
+                                            null
                                 
                     }
                     <span className="noti-time dont-lose-focus">{dayjs(x.createdAt).fromNow()}</span>
@@ -66,6 +70,13 @@ const NotiModal = (props) => {
 
 const showWhineFromNoti = (id, props) => {
     const handle = props.message.handle;
+    props.viewOneWhine(id, handle);
+    setTimeout(() => {
+        document.querySelector('.overlay').style.display = 'block';
+    }, 500);
+}
+
+const showMentionFromNoti = (id, props, handle) => {
     props.viewOneWhine(id, handle);
     setTimeout(() => {
         document.querySelector('.overlay').style.display = 'block';
