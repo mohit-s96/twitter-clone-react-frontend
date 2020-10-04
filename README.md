@@ -1,4 +1,4 @@
-Check out the live version here [Whiner](https://github.com/facebook/create-react-app).
+Check out the live version here [Whiner](https://whiner2-82d5e.web.app).
 
 ## About
 
@@ -52,7 +52,7 @@ This app is powered by Firebase utilizing service for Authentication, Database, 
 
 It isn't fully optimized security wise and needs a few more changes design wise.
 
-## Compoments
+## Components
 
 Most components are fully functional independently. Mock data using JSON server would get them running.
 
