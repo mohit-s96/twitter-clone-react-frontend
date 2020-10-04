@@ -15,7 +15,13 @@ const callerType = "feed";
 
 export class UserHome extends Component {
     componentWillMount(){
+        console.log('hi');
         this.props.getUserData();
+        setTimeout(() => {
+                if(!this.props.user.authenticated){
+                    window.location.href = '/';
+                }
+        }, 8000)
      }
 
      componentDidMount(){
