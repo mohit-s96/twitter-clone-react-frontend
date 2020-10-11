@@ -56,9 +56,9 @@ const Profile = (props) => {
                     <div className="social-text">Socials</div>
                     <div className="websites-link-wrapper">
                         <Link to={`/user/${message.handle}`}><FontAwesomeIcon icon={faLink}/></Link>
-                        {message.link1 && message.link1.length > 0 && <a href={`http://www.${message.link1}`} target="_blank" rel="noopener noreferrer"><img src={`https://www.google.com/s2/favicons?domain_url=${message.link1}`} alt=""/></a>}
-                        {message.link2 && message.link2.length > 0 && <a href={`http://www.${message.link2}`} target="_blank" rel="noopener noreferrer"><img src={`https://www.google.com/s2/favicons?domain_url=${message.link2}`} alt=""/></a>}
-                        {message.link3 && message.link3.length > 0 && <a href={`http://www.${message.link3}`} target="_blank" rel="noopener noreferrer"><img src={`https://www.google.com/s2/favicons?domain_url=${message.link3}`} alt=""/></a>}
+                        {message.link1 && message.link1.length > 0 && <a href={`http://${message.link1}`} target="_blank" rel="noopener noreferrer"><img src={`https://www.google.com/s2/favicons?domain_url=${message.link1}`} alt=""/></a>}
+                        {message.link2 && message.link2.length > 0 && <a href={`http://${message.link2}`} target="_blank" rel="noopener noreferrer"><img src={`https://www.google.com/s2/favicons?domain_url=${message.link2}`} alt=""/></a>}
+                        {message.link3 && message.link3.length > 0 && <a href={`http://${message.link3}`} target="_blank" rel="noopener noreferrer"><img src={`https://www.google.com/s2/favicons?domain_url=${message.link3}`} alt=""/></a>}
                     </div>
                  </div>
                 <div className="age-wrapper">

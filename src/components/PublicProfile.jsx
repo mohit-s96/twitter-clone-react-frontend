@@ -115,9 +115,9 @@ class PublicProfile extends React.Component{
                     <div className="social-text">Socials</div>
                     <div className="websites-link-wrapper">
                         <Link to={`/user/${this.props.userPublicProfile.handle}`}><FontAwesomeIcon icon={faLink}/></Link>
-                        {this.props.userPublicProfile.link1 && this.props.userPublicProfile.link1.length > 0 && <a href={`http://www.${this.props.userPublicProfile.link1}`} target="_blank" rel="noopener noreferrer"><img src={`https://www.google.com/s2/favicons?domain_url=${this.props.userPublicProfile.link1}`} alt=""/></a>}
-                        {this.props.userPublicProfile.link2 && this.props.userPublicProfile.link2.length > 0 && <a href={`http://www.${this.props.userPublicProfile.link2}`} target="_blank" rel="noopener noreferrer"><img src={`https://www.google.com/s2/favicons?domain_url=${this.props.userPublicProfile.link2}`} alt=""/></a>}
-                        {this.props.userPublicProfile.link3 && this.props.userPublicProfile.link3.length > 0 && <a href={`http://www.${this.props.userPublicProfile.link3}`} target="_blank" rel="noopener noreferrer"><img src={`https://www.google.com/s2/favicons?domain_url=${this.props.userPublicProfile.link3}`} alt=""/></a>}
+                        {this.props.userPublicProfile.link1 && this.props.userPublicProfile.link1.length > 0 && <a href={`http://${this.props.userPublicProfile.link1}`} target="_blank" rel="noopener noreferrer"><img src={`https://www.google.com/s2/favicons?domain_url=${this.props.userPublicProfile.link1}`} alt=""/></a>}
+                        {this.props.userPublicProfile.link2 && this.props.userPublicProfile.link2.length > 0 && <a href={`http://${this.props.userPublicProfile.link2}`} target="_blank" rel="noopener noreferrer"><img src={`https://www.google.com/s2/favicons?domain_url=${this.props.userPublicProfile.link2}`} alt=""/></a>}
+                        {this.props.userPublicProfile.link3 && this.props.userPublicProfile.link3.length > 0 && <a href={`http://${this.props.userPublicProfile.link3}`} target="_blank" rel="noopener noreferrer"><img src={`https://www.google.com/s2/favicons?domain_url=${this.props.userPublicProfile.link3}`} alt=""/></a>}
                     </div>
                  </div>
                  <div className="age-wrapper">
