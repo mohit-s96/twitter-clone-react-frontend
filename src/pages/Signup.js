@@ -54,21 +54,21 @@ export class Signup extends Component {
                     <div className="login-logo"><img src={Favicon} alt="logo"/></div>
                     <h3 className="login-h3">Sign Up to Whiner</h3>
                 </div>
-               <div className="form-wrapper">
+               <div className="form-wrapper signup-form-wrapper">
                <form action="#" className="login-form" onSubmit={this.handleSubmit}>
-                    <input type="text" className="register" id="email" onChange={this.handleChange}/>
+                    <input type="text" className="register" id="email" onChange={this.handleChange} placeholder="Enter your Email"/>
                     <label htmlFor="email" className="login-label">E-mail</label>
                     <div className="login-error">{(errors.email) ? errors.email : null}</div>
 
-                    <input type="password" className="register" id="password" onChange={this.handleChange}/>
+                    <input type="password" className="register" id="password" onChange={this.handleChange} placeholder="Choose a password"/>
                     <label htmlFor="password" className="login-label">Password</label>
                     <div className="login-error">{(errors.password) ? errors.password : null}</div>
 
-                    <input type="password" className="register" id="confirmPassword" onChange={this.handleChange}/>
+                    <input type="password" className="register" id="confirmPassword" onChange={this.handleChange} placeholder="Confirm Password"/>
                     <label htmlFor="confirmPassword" className="login-label">Confirm password</label>
                     <div className="login-error">{(errors.confirmPassword) ? errors.confirmPassword : null}</div>
 
-                    <input type="text" className="register" id="handle" onChange={this.handleChange}/>
+                    <input type="text" className="register" id="handle" onChange={this.handleChange} placeholder="Choose a unique user handle"/>
                     <label htmlFor="handle" className="login-label">User Handle</label>
                     <div className="login-error">{(errors.handle) ? errors.handle : null}</div>
 

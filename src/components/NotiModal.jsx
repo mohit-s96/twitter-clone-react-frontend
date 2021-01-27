@@ -16,7 +16,7 @@ const NotiModal = (props) => {
             return (a.createdAt < b.createdAt) ? 1 : ((a.createdAt > b.createdAt) ? -1 : 0);
         });
         notis = notis.map((x, i) => {
-            if(i < 8){
+            if(i < ((window.innerWidth < 500) ? 40 : 8)){
                 return x;
             }
             else{
@@ -71,16 +71,24 @@ const NotiModal = (props) => {
 const showWhineFromNoti = (id, props) => {
     const handle = props.message.handle;
     props.viewOneWhine(id, handle);
-    setTimeout(() => {
-        document.querySelector('.overlay').style.display = 'block';
-    }, 500);
+    if(props.toggleWhine){
+        props.toggleWhine();
+    }else{
+        setTimeout(() => {
+            document.querySelector('.overlay').style.display = 'block';
+        }, 500);
+    }
 }
 
 const showMentionFromNoti = (id, props, handle) => {
     props.viewOneWhine(id, handle);
-    setTimeout(() => {
-        document.querySelector('.overlay').style.display = 'block';
-    }, 500);
+    if(props.toggleWhine){
+        props.toggleWhine();
+    }else{
+        setTimeout(() => {
+            document.querySelector('.overlay').style.display = 'block';
+        }, 500);
+    }
 }
 
 NotiModal.propTypes = {

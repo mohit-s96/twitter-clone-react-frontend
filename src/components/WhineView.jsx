@@ -57,7 +57,9 @@ class WhineView extends Component {
             }, 1500);
         }
     }
-
+    closeWhineModal = () => {
+        this.props.toggleWhine();
+    }
     render() {
         let renderData;
         let x = this.props.singleWhineData;
@@ -65,6 +67,8 @@ class WhineView extends Component {
             (!this.props.whineLoading)
             ?
                 <div className="whine-view-container" tabIndex={0}>
+                    
+                    
                     <div className="whine-view-relative">
                         <div className="whine-view-wrapper">
                             <div className="handle-container-one">
@@ -74,90 +78,95 @@ class WhineView extends Component {
                                     </Link>
                                 </div>
                                 <div className="handle-info-flex">
-                                <Link className="style-handle" to={`/user/${x.handle}`}>
-                                    <span className="handle-text-one">@{x.handle} </span>
-                                </Link>
-                                <span className="at-text"> at</span> 
-                                <span className="whine-time-one">{dayjs(x.createdAt).format('hh:mm - DD MMMM YYYY')}</span>
+                                    <Link className="style-handle" to={`/user/${x.handle}`}>
+                                        <span className="handle-text-one">@{x.handle} </span>
+                                    </Link>
+                                    <span className="at-text"> at</span> 
+                                    <span className="whine-time-one">{dayjs(x.createdAt).format('hh:mm - DD MMMM YYYY')}</span>
                                 </div>
                             </div>
 
                             <div className="whine-body-container-one">
                                 <div className="whine-text-one">
                                     <div className="safe-click"
-                                     dangerouslySetInnerHTML={(x.body)
-                                      ? 
-                                      {__html: parseBody(x.body)} 
-                                      : 
-                                      {__html: parseBody(`Whine deleted :-/`)}} />
+                                    dangerouslySetInnerHTML={(x.body)
+                                    ? 
+                                    {__html: parseBody(x.body)} 
+                                    : 
+                                    {__html: parseBody(`Whine deleted :-/`)}} />
                                     </div>
-                                   
-                                        <div className="engagement-wrapper-one">
-                                    <div className="engagement-one">
+                                
+                                    <div className="engagement-wrapper-one">
+                                        <div className="engagement-one">
                                             <div className="fa-container-one reply1"><FontAwesomeIcon icon={faReply}/></div>
                                             <span className="engagement-count-one">{x.comments ? x.comments.length : 0} Comments</span>
                                         </div>
-                                        <div className="engagement-one">
-                                           {
-                                               this.props.authenticated 
-                                                ? 
-                                                <div className="fa-container-one rewhine1" onClick={() => this.handleRewhine(x.whineId, x.handle)}>
-                                               {(this.props.message.rewhines.includes(x.whineId))
-                                                ? 
-                                                (<FontAwesomeIcon icon={faRetweet} className='rewhined'/>)
-                                                : 
-                                                (<FontAwesomeIcon icon={faRetweet}/>)}
-                                                </div>
-                                                :
-                                                <div className="fa-container-one rewhine1"><FontAwesomeIcon icon={faRetweet}/></div>
-                                           }
-                                            <span className="engagement-count-one">{x.reWhines} Rewhines</span>
-                                        </div>
-                                        <div className="engagement-one">
-                                           {
-                                               this.props.authenticated
-                                               ?
-                                               <div className="fa-container-one like1" onClick={() => this.handleLike(x.whineId, x.handle)}>
-                                               {(this.props.message.likes.includes(x.whineId)) 
-                                               ? 
-                                               (<FontAwesomeIcon icon={faHeart} className='liked'/>) 
-                                               : 
-                                               (<FontAwesomeIcon icon={faHeart}/>)}
-                                               </div>
-                                               :
-                                               <div className="fa-container-one like1"><FontAwesomeIcon icon={faHeart}/></div>
-                                           }
-                                            <span className="engagement-count-one">{x.likes} Likes</span>
-                                        </div>
+                                    <div className="engagement-one">
+                                        {
+                                            this.props.authenticated 
+                                            ? 
+                                            <div className="fa-container-one rewhine1" onClick={() => this.handleRewhine(x.whineId, x.handle)}>
+                                                {   
+                                                    (this.props.message.rewhines.includes(x.whineId))
+                                                    ? 
+                                                    (<FontAwesomeIcon icon={faRetweet} className='rewhined'/>)
+                                                    : 
+                                                    (<FontAwesomeIcon icon={faRetweet}/>)
+                                                }
+                                            </div>
+                                            :
+                                            <div className="fa-container-one rewhine1"><FontAwesomeIcon icon={faRetweet}/></div>
+                                        }
+                                        <span className="engagement-count-one">{x.reWhines} Rewhines</span>
                                     </div>
-                                   
+                                    <div className="engagement-one">
+                                        {
+                                            this.props.authenticated
+                                            ?
+                                            <div className="fa-container-one like1" onClick={() => this.handleLike(x.whineId, x.handle)}>
+                                                {
+                                                    (this.props.message.likes.includes(x.whineId)) 
+                                                    ? 
+                                                    (<FontAwesomeIcon icon={faHeart} className='liked'/>) 
+                                                    : 
+                                                    (<FontAwesomeIcon icon={faHeart}/>)
+                                                }
+                                            </div>
+                                            :
+                                            <div className="fa-container-one like1"><FontAwesomeIcon icon={faHeart}/></div>
+                                        }
+                                        <span className="engagement-count-one">{x.likes} Likes</span>
+                                    </div>
                                 </div>
-                            </div> 
-                         </div>
-                        {
-                            (this.props.authenticated) 
-                            ? 
-                            <div className="reply-input">
-                            <div className="reply-button-wrapper">
-                            <div type="text" className="reply-title post-reply" id="post-reply" data-placeholder="Reply to this whine..." contentEditable="true" onKeyUp={this.handleChange}></div>
-                                                 <button type="submit" className="btn-post-reply" onClick={this.handleClick}>
-                                                     {
-                                                         this.props.commentPosting
-                                                         ?
-                                                         <img src={loaderBlue} alt=""/>
-                                                         :
-                                                         'Reply'
-                                                     }
-                                                 </button>
+                                
                             </div>
-                             <div className="post-whine-error">{(this.state.errors) ? this.state.errors : null}</div>
-                         </div>
-                         :
-                         null
-                        }
-                         <div className="comment-container">
-                            <Comments comments={this.props.singleWhineData.comments}/>                     
-                         </div>
+                        </div> 
+                    </div>
+                    {
+                        (this.props.authenticated) 
+                        ? 
+                        <div className="reply-input">
+                        <div className="reply-button-wrapper">
+                            <div type="text" className="reply-title post-reply" id="post-reply" data-placeholder="Reply to this whine..." contentEditable="true" onKeyUp={this.handleChange}></div>
+                            <button type="submit" className="btn-post-reply" onClick={this.handleClick}>
+                                {
+                                    this.props.commentPosting
+                                    ?
+                                    <img src={loaderBlue} alt=""/>
+                                    :
+                                    'Reply'
+                                }
+                            </button>
+                            </div>
+                         <div className="post-whine-error">{(this.state.errors) ? this.state.errors : null}</div>
+                     </div>
+                     :
+                     null
+
+                    }
+                    <div className="comment-container">
+                        <Comments comments={this.props.singleWhineData.comments}/>                     
+                    </div>
                 </div>
            
             :
@@ -168,7 +177,21 @@ class WhineView extends Component {
                 </div>
         
         return (
-           (this.props.singleWhineData.handle === undefined) ? <div className='whine-view-container'><h3>Whine deleted :/</h3></div> : renderData
+            this.props.whineLoading
+            ? 
+                <div className="whine-view-container" id="whine-view-toggle" tabIndex={0}>
+                    <div className="loader-whine-container">
+                        <img src={loader} alt="loading"/>
+                    </div>
+                </div>
+            :
+            (this.props.singleWhineData.handle === undefined)
+            ? 
+                <div className='whine-view-container'>
+                    <h3>Whine deleted :/</h3>
+                </div>
+            : 
+            renderData
         )
     }
 

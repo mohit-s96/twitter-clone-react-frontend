@@ -1,10 +1,12 @@
 .loader-container{
     width: 100%;
-    height: 90vh;
+    height: 98vh;
+    display: flex;
     align-items: center;
-    position: relative;
+    justify-content: center;
+    /* position: relative; */
 }
-.loader-wrapper{
+/* .loader-wrapper{
     margin: 0 auto;
     margin-top: 50%;
     position: absolute;
@@ -13,4 +15,4 @@
 }
 .loader-wrapper img{
     transform: translate(-50%, -120%);
-}
+} */

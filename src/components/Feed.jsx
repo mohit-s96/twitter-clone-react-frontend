@@ -92,7 +92,7 @@ class Feed extends React.Component {
     }
 
     return (
-       <div> {whines}</div>
+       whines
     );
     }
 
@@ -164,7 +164,12 @@ class Feed extends React.Component {
              && (e.target.tagName !== 'svg')){
                 this.props.viewOneWhine(id, handle);
                 setTimeout(() => {
-                    document.querySelector('.overlay').style.display = 'block';
+                    if(this.props.toggleWhine){
+                        this.props.toggleWhine();
+                    }else{
+                        console.log('ola');
+                        document.querySelector('.overlay').style.display = 'block';
+                    }
                 }, 500);
     
             }

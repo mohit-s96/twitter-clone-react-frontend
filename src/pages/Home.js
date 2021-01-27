@@ -9,8 +9,10 @@ export class Home extends Component {
         return (
             <div>
                 <Navbar/>
-                <Welcome/>
-                <Join/>
+                <div className="flex-home-mobile">
+                    <Welcome/>
+                    <Join/>
+                </div>
                 <Footer/>
             </div>
         )

@@ -37,6 +37,14 @@ class PostWhine extends Component {
         else{
             this.props.postWhine(whineAction);
             document.getElementById('post-message').innerText = '';
+            this.setState({
+                whineBody: ''
+            });
+            setTimeout(() => {
+                if(this.props.toggleEdit){
+                    this.props.toggleEdit();
+                }
+            }, 500)
         }
     }
     render() {

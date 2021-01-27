@@ -6,7 +6,7 @@ import axios from 'axios';
 
 export const getPublicProfile = (handle, history1) => dispatch => {
     dispatch({type: LOADING_PUBLIC});
-    if(handle.trim().length < 1 || handle.trim().length > 10){
+    if(handle.trim().length < 1 || handle.trim().length > 15){
         dispatch({
             type: SET_PUB_ERRORS,
             payload: {error: 'Invalid User'}

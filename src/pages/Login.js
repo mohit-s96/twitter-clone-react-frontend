@@ -51,17 +51,17 @@ export class Login extends Component {
                     </div>
                    <div className="form-wrapper">
                    <form action="#" className="login-form" onSubmit={this.handleSubmit}>
-                        <input type="text" className="register" id="email" onChange={this.handleChange}/>
+                        <input type="text" className="register" id="email" onChange={this.handleChange} placeholder="Enter your Email"/>
                         <label htmlFor="email" className="login-label">E-mail</label>
                         <div className="login-error">{(errors.email) ? errors.email : null}</div>
-                        <input type="password" className="register" id="password" onChange={this.handleChange}/>
+                        <input type="password" className="register" id="password" onChange={this.handleChange} placeholder="Enter your password"/>
                         <label htmlFor="password" className="login-label">Password</label>
                         <div className="login-error">{(errors.password) ? errors.password : null}</div>
                         <div className="btn-login">
                         {loading ? (<button className="login-button" type="submit"><img src={loader} alt="loading"/></button>) : (<button className="login-button" type="submit">Login</button>)}
                         </div>
                          <div className="general-error">{(errors.general) ? errors.general : null}</div>
-                         <div className='rickroll'><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forgot Password</a></div>
+                         {/* <div className='rickroll'><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forgot Password</a></div> */}
                     </form>
                    </div>
                 </div>

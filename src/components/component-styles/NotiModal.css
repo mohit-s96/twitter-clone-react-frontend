@@ -101,9 +101,10 @@
 .blue-noti{
     padding: 6px 8px 12px 8px;
     border-radius: 15px;
-    background-color: #1da1f2 !important;
-    color: white !important;
+    background-color: #1da1f2;
+    color: white;
 }
+
 .noti-time{
     position: absolute;
     color: gray;
@@ -124,4 +125,19 @@
     font-style: italic;
     font-weight: 500;
     color: #106194;
+}
+@media screen and (max-width: 500px){
+    .blue-noti{
+        background-color: unset;
+        position: absolute;
+        color: gray;
+    }
+    .noti-body-wrapper{
+        width: 98%;
+        padding: 4px;
+    }
+    .noti-time{
+        bottom: 8px;
+        right: 10px;
+    }
 }

@@ -31,3 +31,24 @@
     margin-right: 15px;
     transform: translateY(20%);
 }
+@media (max-width: 500px){
+    .welcome-container-card{
+        width: 100%;
+        position: static;
+        transform: unset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40vh;
+    }
+    .welcome-content{
+        position: unset;
+        transform: unset;
+    }
+    .welcome-container-card .text-heading{
+        font-size: 1em;
+    }
+    .welcome-container-card .text-content{
+        font-size: 0.8em;
+    }
+}

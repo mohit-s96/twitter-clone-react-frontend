@@ -21,7 +21,10 @@ const Profile = (props) => {
                <div className="image-edit-container" onClick={handleClick}><FontAwesomeIcon icon={faEdit}/></div>
            </div>
            <div className="lower-profile">
-            <div className="user-name" onClick={() => handleProfileClick(message.handle, props)}>@{message.handle}</div>
+            <div className="user-name"><Link to={`/user/${message.handle}`} style={{
+                textDecoration: 'none',
+                color: '#1da1f2'
+            }}>@{message.handle}</Link></div>
             {
                 message.bio
                  &&
@@ -69,10 +72,6 @@ const Profile = (props) => {
            </div>
         </div>
     )
-}
-
-const handleProfileClick = (handle, props) => {
-    props.getPublicProfile(handle, false);
 }
 
 const handleChange = (e, props) => {

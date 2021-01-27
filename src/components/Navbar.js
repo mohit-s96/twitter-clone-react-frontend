@@ -28,11 +28,11 @@ class Navbar extends React.Component {
                             </div>
                         </div>
                         {
-                        (this.state.inputField !== '')
-                        ?
-                        <SearchList/>
-                        :
-                        null
+                            (this.state.inputField !== '')
+                            ?
+                            <SearchList/>
+                            :
+                            null
                         }
                        </div>
                     </div>

@@ -8,6 +8,7 @@
     margin: 0 auto;
     border-bottom: 1px solid #E6ECF0;
     position: relative;
+    top: 59px;
 }
 .handle-container a{
     text-decoration: none;
@@ -152,4 +153,37 @@
 .rickroll a{
     text-decoration: none;
     color: #1B7CB8;
+}
+@media screen and (max-width: 500px){
+    .feed-container{
+        max-width: 100%;
+        position: absolute;
+        animation: slide 0.3s ease-in-out forwards;
+    }
+    .whine-image img{
+        width: 1.9em;
+        height: 1.9em;
+        transform: translate(-20%, -70%);
+        left: unset;
+        top: unset;
+    }
+    .delete-modal{
+        right: -10px;
+    }
+}
+.post-toggler{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #1fa1d2;
+    position: fixed;
+    bottom: 3rem;
+    right: 8px;
+    box-shadow: 8px 8px white, -5px 0 0.4em gray;
+}
+.post-toggler span{
+    color: #fff;
 }

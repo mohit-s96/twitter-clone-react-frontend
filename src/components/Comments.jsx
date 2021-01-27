@@ -23,7 +23,7 @@ const Comments = props => {
                        <Link to={`/user/${com.createdBy}`}><img src={com.imgUrl} alt="commenter-avatar"/></Link>
                     </div>
                     <div className="comment-author"><Link to={`/user/${com.createdBy}`}>@{com.createdBy}</Link></div>
-                    <div className="comment-time">{dayjs(com.createdAt).fromNow(true)}</div>
+                    <div className="comment-time">{dayjs(com.createdAt).fromNow(true)} ago</div>
                     <div className="comment-body" dangerouslySetInnerHTML={{__html: parseBody(com.body)}}>
                     </div>
                 </div>

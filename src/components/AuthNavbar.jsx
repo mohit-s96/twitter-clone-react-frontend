@@ -23,42 +23,68 @@ class AuthNavbar extends React.Component{
             inputField: ''
         }
     }
+    closeAllModals = () => {
+        if(this.props.closeAll){
+            this.props.closeAll();
+        }
+    }
    render(){
     return (
         <div className="auth-nav-container">
             <div className="auth-nav-flex-main">
                 <div className="auth-nav-flex-left">
-                    <div className="nav-home nav-item"><FontAwesomeIcon icon={faHome}/><Link to="/home"> Home</Link></div>
+                    <div className="nav-home nav-item"><FontAwesomeIcon icon={faHome} onClick={this.closeAllModals}/><Link to="/home">{
+                                        !this.props.device && 'Home'
+                                    }</Link></div>
                     <div className="nav-login nav-item noti-nav" onClick={this.notiReadEvent} >
                         {
                             this.props.message.notifications
                             ?
                             (this.getUnread())
                                 ?
+                                <>
                                <div className="blue-noti">
                                     <div className="not-count-wrapper">
                                     <span className="noti-count">
                                     {this.getUnread()}
                                     </span>
                                     </div>
-                                    <FontAwesomeIcon icon={faBell}/> Notifications
+                                    {
+                                        !this.props.device && <><FontAwesomeIcon icon={faBell}/>
+                                        Notifications</> 
+                                    }
                                </div>
+                               {
+                                   this.props.device && <FontAwesomeIcon icon={faBell}/>
+                               }
+                               
+                                </>
                                 
                                 :
-                                <div><FontAwesomeIcon icon={faBell}/> Notifications</div>
+                                <div><FontAwesomeIcon icon={faBell}/> {
+                                    !this.props.device && 'Notifications'
+                                }</div>
                             :
-                            <div><FontAwesomeIcon icon={faBell}/> Notifications</div>
+                            <div><FontAwesomeIcon icon={faBell}/> {
+                                !this.props.device && 'Notifications'
+                            }</div>
                         }
                         <div className="noti-container" id="show-hide-noti" onBlur={this.closeNotiModal} tabIndex={0}><NotiModal/></div>
                         </div>
                         {/* <FontAwesomeIcon icon={faBell}/> Notifications</div> */}
-                    <div className="nav-signup nav-item" onClick={this.handleClick}><FontAwesomeIcon icon={faSignOutAlt}/> Logout</div>
+                    <div className="nav-signup nav-item" onClick={this.handleClick}><FontAwesomeIcon icon={faSignOutAlt}/>{
+                                        !this.props.device && 'Logout'
+                                    }</div>
                 </div>
-                <div className="branding"><Link to="/"><img src={favicon} alt=""/></Link></div>
+                {
+                    !this.props.device ? <div className="branding"><Link to="/"><img src={favicon} alt=""/></Link></div> : null
+                }
                 <div className="auth-nav-flex-right">
-                    <div className="nav-input">
-                        <input type="text" className="search" id="nav-search" placeholder="Search..." onChange={throttle_func(this.getSearchList, 20)}/>
-                        <div className="nav-search-icon">
+                    <div className="nav-input nav-input1">
+                        {
+                            !this.props.device ? <input type="text" className="search" id="nav-search" placeholder="Search..." onChange={throttle_func(this.getSearchList, 20)}/> : null
+                        }
+                        <div className="nav-search-icon1">
                             <FontAwesomeIcon icon={faSearch}/>
                         </div>
                     </div>
@@ -73,6 +99,10 @@ class AuthNavbar extends React.Component{
             </div>
         </div>
     )
+   }
+
+   openProfile = () => {
+       this.props.toggleProfile();
    }
 
    closeNotiModal = (e) => {
@@ -105,8 +135,12 @@ class AuthNavbar extends React.Component{
 
 
    notiReadEvent = () => {
-        document.getElementById('show-hide-noti').classList.add('show-notis');
-        document.getElementById('show-hide-noti').focus();
+        if(this.props.toggleNoti){
+            this.props.toggleNoti();
+        }else{
+            document.getElementById('show-hide-noti').classList.add('show-notis');
+            document.getElementById('show-hide-noti').focus();
+        }
         let x = this.props.message.notifications;
         let i = [];
         x.forEach(a => {
