@@ -2,7 +2,7 @@ import {SET_ERRORS, SET_USER, CLEAR_ERRORS, LOADING_UI, SET_UNAUTHENTICATED,
      USER_FEED, LOADING_USER, LIKE_WHINE, UNLIKE_WHINE, 
      RE_WHINE, LOADING_IMAGE, WHINE_LOADING, FOLLOW_ACTION, UNFOLLOW_ACTION,
     FOLLOW_USER_ACTION, UNFOLLOW_USER_ACTION, LIKE_WHINE_PUBLIC, UNLIKE_WHINE_PUBLIC, RE_WHINE_PUBLIC,
-    ADD_LIKE_LIST, ADD_UNLIKE_LIST, ADD_REWHINE_LIST, MARK_NOTI_READ } from '../types';
+    ADD_LIKE_LIST, ADD_UNLIKE_LIST, ADD_REWHINE_LIST, MARK_NOTI_READ, LINK_SENT} from '../types';
 import {getPublicFeed} from './dataActions';
 import axios from 'axios';
 
@@ -31,22 +31,23 @@ export const logoutUser = () => dispatch => {
     dispatch({type: SET_UNAUTHENTICATED});
 }
 
-export const signupUser = (userData, history) => dispatch => {
+export const signupUser = (userData, history, mail) => dispatch => {
     dispatch({type: LOADING_UI});
     axios.post('/signup', userData)
-             .then(res => {
-                localStorage.setItem('jwt-auth', res.data.token);
-                axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
-                dispatch(getUserData('signup'));
-                dispatch({type: CLEAR_ERRORS});
-                history.push('/home');
-             })
-             .catch(err => {
-               dispatch({
-                   type: SET_ERRORS,
-                   payload: (err.response.data.errors) ? err.response.data.errors : err.response.data
-               });
-             });
+        .then(() => {
+            dispatch({type: LINK_SENT, payload: mail})
+            // localStorage.setItem('jwt-auth', res.data.token);
+            // axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
+            // dispatch(getUserData('signup'));
+            dispatch({type: CLEAR_ERRORS});
+            history.push('/verify');
+        })
+        .catch(err => {
+            dispatch({
+                type: SET_ERRORS,
+                payload: (err.response.data.errors) ? err.response.data.errors : err.response.data
+            });
+        });
 }
 
 export const getUserData = () => dispatch => {

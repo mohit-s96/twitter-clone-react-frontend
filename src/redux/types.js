@@ -13,6 +13,7 @@ export const ADD_UNLIKE_LIST = 'ADD_UNLIKE_LIST';
 export const ADD_REWHINE_LIST = 'ADD_REWHINE_LIST';
 export const MARK_NOTI_READ = 'MARK_NOTI_READ';
 export const DELETE_WHINE = 'DELETE_WHINE';
+export const LINK_SENT = 'LINK_SENT';
 
 export const SET_ERRORS = 'SET_ERRORS';
 export const SET_PUB_ERRORS = 'SET_PUB_ERRORS';

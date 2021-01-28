@@ -1,18 +1,26 @@
 import {SET_USER, SET_UNAUTHENTICATED, SET_AUTHENTICATED, USER_FEED, LOADING_USER,
         LIKE_WHINE, UNLIKE_WHINE, RE_WHINE, LOADING_IMAGE, WHINE_LOADING, FOLLOW_USER_ACTION, UNFOLLOW_USER_ACTION,
-        ADD_LIKE_LIST, ADD_UNLIKE_LIST, ADD_REWHINE_LIST, MARK_NOTI_READ} from '../types';
+        ADD_LIKE_LIST, ADD_UNLIKE_LIST, ADD_REWHINE_LIST, MARK_NOTI_READ, LINK_SENT} from '../types';
 
 const initialState = {
     authenticated: false,
     message: {},
     userFeed: {},
     loading: false,
+    emailLinkSent: {},
     imageLoading: false,
     whineLoading: false
 };
 
 export default function (state = initialState, action){
     switch(action.type){
+        case LINK_SENT:
+            return{
+                ...state,
+                emailLinkSent: {
+                    email: action.payload
+                }
+            }
         case SET_AUTHENTICATED:
             return{
                 ...state,

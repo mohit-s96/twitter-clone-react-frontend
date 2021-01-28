@@ -35,7 +35,7 @@ export class Signup extends Component {
             confirmPassword: this.state.confirmPassword,
             handle: this.state.handle
         };
-        this.props.signupUser(userData, this.props.history);
+        this.props.signupUser(userData, this.props.history, this.state.email);
     }
     handleChange = e => {
         this.setState({ 
