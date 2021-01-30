@@ -127,7 +127,11 @@ class PublicFeed extends React.Component {
             )
     }))
     : 
-    (<div className="no-feed"><h3>No whines to show</h3></div>)
+    (<h3 className="single-feed-container" style={{
+        pading: '8px',
+        textAlign: 'center',
+        margin: '1em'
+    }}>No whines to show</h3>)
     return (
         <div> {whines}</div>
      );
@@ -189,7 +193,12 @@ class PublicFeed extends React.Component {
              && (e.target.tagName !== 'svg')){
                 this.props.viewOneWhine(id, handle);
                 setTimeout(() => {
-                    document.querySelector('.overlay').style.display = 'block';
+                    if(this.props.toggleWhine){
+                        this.props.toggleWhine();
+                    }else{
+                        document.querySelector('.overlay').style.display = 'block';
+                    }
+                    
                 }, 500);
     
             }

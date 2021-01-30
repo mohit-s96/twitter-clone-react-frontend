@@ -57,7 +57,7 @@ export class Signup extends Component {
                <div className="form-wrapper signup-form-wrapper">
                <form action="#" className="login-form" onSubmit={this.handleSubmit}>
                     <input type="text" className="register" id="email" onChange={this.handleChange} placeholder="Enter your Email"/>
-                    <label htmlFor="email" className="login-label">E-mail</label>
+                    <label htmlFor="email" className="login-label">Enter a valid E-mail</label>
                     <div className="login-error">{(errors.email) ? errors.email : null}</div>
 
                     <input type="password" className="register" id="password" onChange={this.handleChange} placeholder="Choose a password"/>

@@ -87,7 +87,11 @@ class Feed extends React.Component {
             )
     }))
     : 
-    (<div className="no-feed"><h3>No whines to show. Follow some more users to see why they are depressed</h3></div>)
+    (<h3 className="single-feed-container" style={{
+        pading: '8px',
+        textAlign: 'center',
+        margin: '1em'
+    }}>No whines to show. Follow some more users to see why they are depressed</h3>)
 
     }
 
@@ -167,7 +171,6 @@ class Feed extends React.Component {
                     if(this.props.toggleWhine){
                         this.props.toggleWhine();
                     }else{
-                        console.log('ola');
                         document.querySelector('.overlay').style.display = 'block';
                     }
                 }, 500);

@@ -4,10 +4,11 @@ import {connect} from 'react-redux';
 import '../components/component-styles/Profile.css';
 import {getPublicProfile} from '../redux/actions/dataActions';
 import UnAuthNabar from '../components/UnAuthNavbar';
-import AuthNabar from '../components/AuthNavbar';
+import AuthNavbar from '../components/AuthNavbar';
 import Loader from '../components/Loader';
 import PublicProfile from '../components/PublicProfile';
 import PublicFeed from '../components/PublicFeed';
+import MobileTopNav from '../components/MobileTopNav';
 import {getOnlyUserData} from '../redux/actions/userActions';
 import NotiModal from '../components/NotiModal';
 import WhineView from '../components/WhineView';
@@ -16,7 +17,22 @@ import {withRouter} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 const callerType = 'pfeed';
 class UserProfile extends Component {
+    constructor(){
+        super();
+        this.state = {
+            device: '',
+            profileOpen: false,
+            notiOpen: false,
+            whineOpen: false,
+            updateOpen: false
+        }
+    }
     componentWillMount(){
+        if(window.innerWidth < 500){
+            this.setState({device: 'small'});
+        }else{
+            this.setState({device: 'large'});
+        }
         this.props.getPublicProfile(this.props.match.params.handle, false);
         if(this.props.authenticated){
             this.props.getOnlyUserData('reload');
@@ -26,18 +42,107 @@ class UserProfile extends Component {
         return (
             <div>
                 <Helmet><title>{this.props.match.params.handle}</title></Helmet>
-               { (!this.props.publicErrors.error) ? ((this.props.publoading || this.props.loading) ? <Loader/>
+               { (!this.props.publicErrors.error) ? (this.props.publoading || this.props.loading) ? <Loader/>
                : 
-               (<div>
-                   {this.props.authenticated ? <AuthNabar/> : <UnAuthNabar/>}
+               this.state.device === 'large'
+                ? 
+               <div>
+                   {this.props.authenticated ? <AuthNavbar/> : <UnAuthNabar/>}
                     <PublicProfile history={this.props.history}/>
                     <div className="feed-container"><PublicFeed/></div>
                     {(this.props.authenticated) ?  <div className="noti-container" id="show-hide-noti" onBlur={this.closeNotiModal} tabIndex={0}><NotiModal/></div> : null}
                     <div><div className="overlay" id="overlay" onClick={this.closeView}><WhineView callerType={callerType}/></div></div>
                     <div>{<div className="overlay overlay2" id="overlay2" onClick={this._closeView}><EditInfo/></div>}</div>
-                </div>))
-               : 
-               <h3>Invalid User</h3>}
+                </div>
+               :
+               <div>
+                   {
+                       (!this.state.whineOpen && !this.state.profileOpen && !this.state.notiOpen) ? 
+                       <>
+                        <MobileTopNav 
+                            device={this.state.device}
+                            toggleProfile={() => {this.setState((p) => ({profileOpen: !p.profileOpen, whineOpen: false, notiOpen: false}))}}
+                        />
+                        <div className="profile-modal-overlay">
+                        <div className="profile-container" style={{height: '100%'}}>  
+                            <PublicFeed
+                                toggleWhine={() => {this.setState((p) => ({whineOpen: !p.whineOpen, notiOpen: false, profileOpen: false}))}}
+                                center={this.setDivCenter}
+                            />
+                        </div>
+                        </div>
+                       </>
+                       : null
+                   }
+                   {
+                       this.state.profileOpen 
+                       ? 
+                       <div className="profile-modal-overlay">
+                          <div className="profile-container" style={{height: '100%'}}>
+                              <PublicProfile history={this.props.history}
+                                editModal={() => {this.setState(() => ({notiOpen: false, profileOpen: true, whineOpen: false, updateOpen: true}))}}
+                              />
+                          </div>
+                      </div>
+                      : 
+                      null
+                   }
+                   {
+                        this.state.notiOpen
+                        ?
+                        <div className="profile-modal-overlay">
+                            <div className="profile-container" style={{height: '100%', backgroundColor: '#1da1f2'}}>
+                                <NotiModal
+                                    toggleWhine={() => {this.setState((p) => ({whineOpen: !p.whineOpen, notiOpen: false, profileOpen: false, updateOpen: false}))}}
+                                />
+                            </div>
+                        </div>
+                        :
+                        null
+                    }
+                    {
+                        this.state.whineOpen
+                        ?
+                        <div className="profile-modal-overlay">
+                            <div className="profile-container" style={{backgroundColor: '#1da1f2', position: 'relative', height: '95vh'}}>
+                                <WhineView 
+                                    callerType={callerType}
+                                    toggleWhine={() => {this.setState((p) => ({whineOpen: !p.whineOpen, notiOpen: false, profileOpen: false, updateOpen: false}))}}
+                                />
+                            </div>
+                        </div>
+                        :
+                        null
+                    }
+                    {
+                        this.state.updateOpen
+                        ?
+                        <div className="profile-modal-overlay">
+                            <div className="profile-container" style={{height: '95vh'}}>
+                                <EditInfo
+                                    closeAll={() => {this.setState(() => ({notiOpen: false, profileOpen: true, whineOpen: false, updateOpen: false}))}}
+                                />
+                            </div>
+                        </div>
+                        :
+                        null
+                    }
+                    {
+                        this.props.authenticated ? 
+                        <AuthNavbar device={this.state.device}
+                         toggleProfile={() => {this.setState((p) => ({profileOpen: !p.profileOpen, whineOpen: false, notiOpen: false, updateOpen: false}))}}
+                         toggleNoti={() => {this.setState((p) => ({notiOpen: !p.notiOpen, profileOpen: false, whineOpen: false, updateOpen: false}))}}
+                         closeAll={() => {this.setState(() => ({notiOpen: false, profileOpen: false, whineOpen: false, updateOpen: false}))}}
+                         />
+                         :
+                         <UnAuthNabar device={this.state.device}
+                         closeAll={() => {this.setState(() => ({notiOpen: false, profileOpen: false, whineOpen: false, updateOpen: false}))}}
+                         />
+                    }
+               </div>
+               :
+               <h3>Invalid User</h3>
+            }
             </div>
         )
     }

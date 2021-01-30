@@ -37,7 +37,6 @@ if(token){
   if(n[1]){
     let tok = n[1].split('&');
     tok = tok[0];
-    console.log(tok);
     const decodedToken = jwtDecode(tok);
     if(decodedToken.exp * 1000 < Date.now()){
       store.dispatch(logoutUser());
@@ -45,6 +44,7 @@ if(token){
     }
     else{
       store.dispatch({type: SET_AUTHENTICATED});
+      localStorage.setItem('jwt-auth', tok);
       axios.defaults.headers.common['Authorization'] = `Bearer ${tok}`;
       // store.dispatch(getUserData('app'));
     }

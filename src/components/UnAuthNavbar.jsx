@@ -26,11 +26,15 @@ class UnAuthNavbar extends React.Component {
                         <div className="nav-login nav-item"><Link to="/login">Login</Link></div>
                         <div className="nav-signup nav-item"><Link to="/signup">Signup</Link></div>
                     </div>
-                    <div className="branding"><Link to="/"><img src={favicon} alt=""/></Link></div>
+                   {
+                       !this.props.device ?  <div className="branding"><Link to="/"><img src={favicon} alt=""/></Link></div> : null
+                   }
                     <div className="auth-nav-flex-right">
                         <div className="nav-input">
-                            <input type="text" className="search" id="nav-search" placeholder="Search..."  onChange={throttle_func(this.getSearchList, 20)}/>
-                            <div className="nav-search-icon">
+                            {
+                                !this.props.device ? <input type="text" className="search" id="nav-search" placeholder="Search..." onChange={throttle_func(this.getSearchList, 20)}/> : null
+                            }
+                            <div className="nav-search-icon1">
                                 <FontAwesomeIcon icon={faSearch}/>
                             </div>
                         </div>

@@ -60,6 +60,17 @@ export class Login extends Component {
                         <div className="btn-login">
                         {loading ? (<button className="login-button" type="submit"><img src={loader} alt="loading"/></button>) : (<button className="login-button" type="submit">Login</button>)}
                         </div>
+                        {
+                            errors.error && <div style={{
+                                color: '#fff',
+                                backgroundColor: 'crimson',
+                                marginTop: '8px',
+                                width: '100%',
+                                padding: '8px',
+                                textAlign: 'center',
+                                fontSize: '1.2em'
+                            }}>Email unverified. Please check your email for verification link.</div>
+                        }
                          <div className="general-error">{(errors.general) ? errors.general : null}</div>
                          {/* <div className='rickroll'><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forgot Password</a></div> */}
                     </form>
