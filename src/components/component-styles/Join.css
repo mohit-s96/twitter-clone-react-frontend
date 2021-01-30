@@ -46,7 +46,7 @@
 .join-container .signup a{
     color: black;
 }
-@media (max-width: 500px){
+@media (max-width: 1028px){
     .join-container{
         width: 100%;
         transform: unset;

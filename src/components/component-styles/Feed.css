@@ -154,7 +154,7 @@
     text-decoration: none;
     color: #1B7CB8;
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 1028px){
     .feed-container{
         max-width: 100%;
         position: absolute;

@@ -60,7 +60,7 @@ div.post-message:focus:empty:before{
     bottom: 8%;
     transform: translateY(-32%);
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 1028px){
     .post-title{
         width: 90%;
     }

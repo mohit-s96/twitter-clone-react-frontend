@@ -126,7 +126,7 @@
     font-weight: 500;
     color: #106194;
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 1028px){
     .blue-noti{
         background-color: unset;
         position: absolute;
@@ -139,5 +139,11 @@
     .noti-time{
         bottom: 8px;
         right: 10px;
+    }
+    .suggestion-container{
+        position: unset;
+        transform: unset;
+        width: 96%;
+        margin: 0 auto;
     }
 }

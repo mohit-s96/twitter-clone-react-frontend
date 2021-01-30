@@ -33,9 +33,16 @@ class AuthNavbar extends React.Component{
         <div className="auth-nav-container">
             <div className="auth-nav-flex-main">
                 <div className="auth-nav-flex-left">
-                    <div className="nav-home nav-item"><FontAwesomeIcon icon={faHome} onClick={this.closeAllModals}/><Link to="/home">{
-                                        !this.props.device && 'Home'
-                                    }</Link></div>
+                    <div className="nav-home nav-item">
+                        <FontAwesomeIcon 
+                            icon={faHome}
+                            onClick={this.closeAllModals}/>
+                        <Link to="/home">
+                            {
+                                !this.props.device && 'Home'
+                            }
+                        </Link>
+                    </div>
                     <div className="nav-login nav-item noti-nav" onClick={this.notiReadEvent} >
                         {
                             this.props.message.notifications
@@ -71,10 +78,12 @@ class AuthNavbar extends React.Component{
                         }
                         <div className="noti-container" id="show-hide-noti" onBlur={this.closeNotiModal} tabIndex={0}><NotiModal/></div>
                         </div>
-                        {/* <FontAwesomeIcon icon={faBell}/> Notifications</div> */}
-                    <div className="nav-signup nav-item" onClick={this.handleClick}><FontAwesomeIcon icon={faSignOutAlt}/>{
-                                        !this.props.device && 'Logout'
-                                    }</div>
+                    <div className="nav-signup nav-item" onClick={this.handleClick}>
+                        <FontAwesomeIcon icon={faSignOutAlt}/>
+                        {
+                            !this.props.device && 'Logout'
+                        }
+                    </div>
                 </div>
                 {
                     !this.props.device ? <div className="branding"><Link to="/"><img src={favicon} alt=""/></Link></div> : null
@@ -82,16 +91,25 @@ class AuthNavbar extends React.Component{
                 <div className="auth-nav-flex-right">
                     <div className="nav-input nav-input1">
                         {
-                            !this.props.device ? <input type="text" className="search" id="nav-search" placeholder="Search..." onChange={throttle_func(this.getSearchList, 20)}/> : null
+                            !this.props.device 
+                            ? 
+                            <input 
+                                type="text" 
+                                className="search" 
+                                id="nav-search" 
+                                placeholder="Search..." 
+                                onChange={throttle_func(this.getSearchList, 20)}/>
+                            : 
+                            null
                         }
-                        <div className="nav-search-icon1">
+                        <div className="nav-search-icon1" onClick={this.toggleSearch}>
                             <FontAwesomeIcon icon={faSearch}/>
                         </div>
                     </div>
                     {
                         (this.state.inputField !== '')
                         ?
-                        <SearchList/>
+                            <SearchList/>
                         :
                         null
                     }
@@ -100,7 +118,13 @@ class AuthNavbar extends React.Component{
         </div>
     )
    }
-
+   toggleSearch = () => {
+       console.log('hi');
+       if(this.props.openSearch){
+           console.log('hello');
+            this.props.openSearch();
+       }
+   }
    openProfile = () => {
        this.props.toggleProfile();
    }
@@ -174,15 +198,13 @@ class AuthNavbar extends React.Component{
 }
 
 AuthNavbar.propTypes = {
-    // ui: PropTypes.object.isRequired,
     message: PropTypes.object.isRequired,
     logoutUser: PropTypes.func.isRequired,
     markNotiRead: PropTypes.func.isRequired,
     getSearchAutoComplete: PropTypes.func.isRequired,
 };
 const mapStateToProps = state => ({
-    message: state.user.message,
-    // ui: state.ui
+    message: state.user.message
 });
 
 const mapActionsToProps = {

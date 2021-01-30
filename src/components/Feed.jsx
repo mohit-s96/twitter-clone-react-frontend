@@ -14,6 +14,7 @@ import dayjs from 'dayjs';
 import {likeUnlikeWhine, postRewhine, deleteWhine} from '../redux/actions/userActions';
 import {viewOneWhine} from '../redux/actions/dataActions';
 import parseBody from '../util/parseBody'
+import FollowSuggestion from './FollowSuggestion';
 dayjs.extend(relativeTime);
 
 class Feed extends React.Component {
@@ -35,7 +36,8 @@ class Feed extends React.Component {
     if(userFeed){
         whines = (userFeed.length > 0)
     ? 
-    (sortedFeed.map(x => {
+    (sortedFeed.map((x, i) => {
+        if(i !== (sortedFeed.length < 10 ? 3 : 9)){
             return (
                 <div className='single-feed-container' key={(x.reWhinedBy) ? `_rewhine_${x.whineId}` : x.whineId}>
                    <div className="one-whine" onClick={(e) => this.handleViewWhine(x.whineId, x.handle, e)}>
@@ -85,21 +87,35 @@ class Feed extends React.Component {
                    </div>
                 </div>
             )
+        }else{
+            return (
+                <>
+                {
+                    window.innerWidth <= 1028 
+                    ?
+                    <div className='single-feed-container'>
+                        <FollowSuggestion/>
+                    </div>
+                    : 
+                    null
+                }
+                </>
+            )
+        }
     }))
     : 
-    (<h3 className="single-feed-container" style={{
-        pading: '8px',
-        textAlign: 'center',
-        margin: '1em'
-    }}>No whines to show. Follow some more users to see why they are depressed</h3>)
+    (<div className="single-feed-container" style={{
+        margin: '1em',
+    }}>No whines to show. Follow some more users to see why they are depressed
+        <FollowSuggestion/>
+    </div>)
 
     }
 
     return (
-       whines
+        whines
     );
     }
-
 
     deleteOneWhine = (id, handle, e) => {
         let body = {
@@ -201,7 +217,9 @@ Feed.propTypes = {
 
 const mapStateToProps = state => ({
     user: state.user, 
-    singleWhineData: state.data.singleWhineData
+    singleWhineData: state.data.singleWhineData,
+    topUsers: state.data.topUsers,
+    suggestionLoading: state.data.suggestionLoading
 });
 const mapActionToProps = {
     likeUnlikeWhine,

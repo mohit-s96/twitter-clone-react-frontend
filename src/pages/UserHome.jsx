@@ -9,6 +9,7 @@ import Profile from '../components/Profile';
 import {getUserData} from '../redux/actions/userActions';
 import {loadSuggestions} from '../redux/actions/dataActions';
 import WhineView from '../components/WhineView';
+import MobileSearch from '../components/MobileSearch';
 import FollowSuggestion from '../components/FollowSuggestion';
 import MobileTopNav from '../components/MobileTopNav';
 import NotiModal from '../components/NotiModal';
@@ -25,11 +26,12 @@ export class UserHome extends Component {
             profileOpen: false,
             notiOpen: false,
             whineOpen: false,
-            editOpen: false
+            editOpen: false,
+            searchOpen: false
         }
     }
     componentWillMount(){
-        if(window.innerWidth < 500){
+        if(window.innerWidth <= 1028){
             this.setState({device: 'small'});
         }else{
             this.setState({device: 'large'});
@@ -43,6 +45,13 @@ export class UserHome extends Component {
      }
 
      componentDidMount(){
+         window.addEventListener('resize', () => {
+             if(window.innerWidth <= 1028 && this.state.device !== 'small'){
+                this.setState({device: 'small'});
+             }else if(window.innerWidth >= 1300 && this.state.device !== 'large'){
+                this.setState({device: 'large'});
+             }
+         })
          this.props.loadSuggestions();
      }
      setDivCenter = function () {
@@ -72,22 +81,22 @@ export class UserHome extends Component {
              <Helmet><title>Home / Whiner</title></Helmet>
              {/* <div className="feed-container"> */}
                  {
-                     (!this.state.whineOpen && !this.state.profileOpen && !this.state.notiOpen && !this.state.editOpen) ? 
+                     (!this.state.whineOpen && !this.state.profileOpen && !this.state.notiOpen && !this.state.editOpen && !this.state.searchOpen) ? 
                      <>
                      <MobileTopNav 
                         device={this.state.device}
-                        toggleProfile={() => {this.setState((p) => ({profileOpen: !p.profileOpen, whineOpen: false, notiOpen: false, editOpen: false}))}}
+                        toggleProfile={() => {this.setState((p) => ({profileOpen: !p.profileOpen, whineOpen: false, notiOpen: false, editOpen: false, searchOpen: false}))}}
                      />
                      <div className="profile-modal-overlay">
                         <div className="profile-container" style={{height: '100%'}}>
                             
                             <Feed 
-                                toggleWhine={() => {this.setState((p) => ({whineOpen: !p.whineOpen, notiOpen: false, profileOpen: false, editOpen: false}))}}
+                                toggleWhine={() => {this.setState((p) => ({whineOpen: !p.whineOpen, notiOpen: false, profileOpen: false, editOpen: false, searchOpen: false}))}}
                                 center={this.setDivCenter}
                             />
                         </div>
                      </div>
-                     <div className="post-toggler" onClick={() => {this.setState((p) => ({editOpen: !p.whineOpen, notiOpen: false, profileOpen: false, whineOpen: false}))}}>
+                     <div className="post-toggler" onClick={() => {this.setState((p) => ({editOpen: !p.whineOpen, notiOpen: false, profileOpen: false, whineOpen: false, searchOpen: false}))}}>
                         <span>
                             <FontAwesomeIcon icon={faPen}/>
                         </span>
@@ -103,7 +112,7 @@ export class UserHome extends Component {
                 <div className="profile-modal-overlay">
                     <div className="profile-container" style={{height: '100%'}}>
                         <PostWhine
-                            toggleEdit={() => {this.setState((p) => ({editOpen: false, notiOpen: false, profileOpen: false, whineOpen: false}))}}
+                            toggleEdit={() => {this.setState((p) => ({editOpen: false, notiOpen: false, profileOpen: false, whineOpen: false, searchOpen: false}))}}
                         />
                     </div>
                 </div>
@@ -127,12 +136,23 @@ export class UserHome extends Component {
                  <div className="profile-modal-overlay">
                     <div className="profile-container" style={{height: '100%', backgroundColor: '#1da1f2'}}>
                         <NotiModal
-                            toggleWhine={() => {this.setState((p) => ({whineOpen: !p.whineOpen, notiOpen: false, profileOpen: false, editOpen: false}))}}
+                            toggleWhine={() => {this.setState((p) => ({whineOpen: !p.whineOpen, notiOpen: false, profileOpen: false, editOpen: false, searchOpen: false}))}}
                         />
                     </div>
                 </div>
                 :
                 null
+             }
+             {
+                 this.state.searchOpen
+                 ?
+                 <div className="profile-modal-overlay">
+                     <div className="profile-container" style={{backgroundColor: '#1da1f2', position: 'relative', height: '95vh'}}>
+                         <MobileSearch/>
+                     </div>
+                 </div>
+                 :
+                 null
              }
             {
                  this.state.whineOpen
@@ -141,7 +161,7 @@ export class UserHome extends Component {
                     <div className="profile-container" style={{backgroundColor: '#1da1f2', position: 'relative', height: '95vh'}}>
                         <WhineView 
                             callerType={callerType}
-                            toggleWhine={() => {this.setState((p) => ({whineOpen: !p.whineOpen, notiOpen: false, profileOpen: false, editOpen: false}))}}
+                            toggleWhine={() => {this.setState((p) => ({whineOpen: !p.whineOpen, notiOpen: false, profileOpen: false, editOpen: false, searchOpen: false}))}}
                         />
                     </div>
                 </div>
@@ -149,11 +169,13 @@ export class UserHome extends Component {
                 null
             }
              {/* <div><FollowSuggestion/></div> */}
-             <AuthNavbar device={this.state.device}
-                         toggleProfile={() => {this.setState((p) => ({profileOpen: !p.profileOpen, whineOpen: false, notiOpen: false, editOpen: false}))}}
-                         toggleNoti={() => {this.setState((p) => ({notiOpen: !p.notiOpen, profileOpen: false, whineOpen: false, editOpen: false}))}}
-                         closeAll={() => {this.setState(() => ({notiOpen: false, profileOpen: false, whineOpen: false, editOpen: false}))}}
-                         />
+             <AuthNavbar 
+                device={this.state.device}
+                toggleProfile={() => {this.setState((p) => ({profileOpen: !p.profileOpen, whineOpen: false, notiOpen: false, editOpen: false, searchOpen: false}))}}
+                toggleNoti={() => {this.setState((p) => ({notiOpen: !p.notiOpen, profileOpen: false, whineOpen: false, editOpen: false, searchOpen: false}))}}
+                closeAll={() => {this.setState(() => ({notiOpen: false, profileOpen: false, whineOpen: false, editOpen: false, searchOpen: false}))}}
+                openSearch={() => {this.setState((p) => ({searchOpen: !p.searchOpen, notiOpen: false, profileOpen: false, whineOpen: false, editOpen: false}))}}
+            />
         </div>
          
          : 

@@ -210,7 +210,7 @@
     font-size: 0.8em;
     cursor: pointer;
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 1028px){
     .profile-wrapper{
         width: 100%;
         background-color: #fff;

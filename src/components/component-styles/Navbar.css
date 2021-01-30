@@ -81,7 +81,7 @@
     cursor: pointer;
     font-size: smaller;
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 1028px){
     .nav-search-icon1{
         background-color: unset;
         width: unset;

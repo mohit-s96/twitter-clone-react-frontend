@@ -363,7 +363,7 @@ div.post-reply:focus:empty:before{
     text-decoration: none;
     color: #000000;
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 1028px){
     .whine-view-container{
         width: 98%;
         height: 100vh;

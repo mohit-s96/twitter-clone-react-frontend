@@ -31,7 +31,7 @@
     margin-right: 15px;
     transform: translateY(20%);
 }
-@media (max-width: 500px){
+@media (max-width: 1028px){
     .welcome-container-card{
         width: 100%;
         position: static;

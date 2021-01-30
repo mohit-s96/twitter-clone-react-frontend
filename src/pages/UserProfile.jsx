@@ -9,6 +9,7 @@ import Loader from '../components/Loader';
 import PublicProfile from '../components/PublicProfile';
 import PublicFeed from '../components/PublicFeed';
 import MobileTopNav from '../components/MobileTopNav';
+import MobileSearch from '../components/MobileSearch';
 import {getOnlyUserData} from '../redux/actions/userActions';
 import NotiModal from '../components/NotiModal';
 import WhineView from '../components/WhineView';
@@ -24,7 +25,8 @@ class UserProfile extends Component {
             profileOpen: false,
             notiOpen: false,
             whineOpen: false,
-            updateOpen: false
+            updateOpen: false,
+            searchOpen: false
         }
     }
     componentWillMount(){
@@ -57,16 +59,16 @@ class UserProfile extends Component {
                :
                <div>
                    {
-                       (!this.state.whineOpen && !this.state.profileOpen && !this.state.notiOpen) ? 
+                       (!this.state.whineOpen && !this.state.profileOpen && !this.state.notiOpen && !this.state.searchOpen) ? 
                        <>
                         <MobileTopNav 
                             device={this.state.device}
-                            toggleProfile={() => {this.setState((p) => ({profileOpen: !p.profileOpen, whineOpen: false, notiOpen: false}))}}
+                            toggleProfile={() => {this.setState((p) => ({profileOpen: !p.profileOpen, whineOpen: false, notiOpen: false, searchOpen: false}))}}
                         />
                         <div className="profile-modal-overlay">
                         <div className="profile-container" style={{height: '100%'}}>  
                             <PublicFeed
-                                toggleWhine={() => {this.setState((p) => ({whineOpen: !p.whineOpen, notiOpen: false, profileOpen: false}))}}
+                                toggleWhine={() => {this.setState((p) => ({whineOpen: !p.whineOpen, notiOpen: false, profileOpen: false, searchOpen: false}))}}
                                 center={this.setDivCenter}
                             />
                         </div>
@@ -75,12 +77,23 @@ class UserProfile extends Component {
                        : null
                    }
                    {
+                        this.state.searchOpen
+                        ?
+                        <div className="profile-modal-overlay">
+                            <div className="profile-container" style={{backgroundColor: '#1da1f2', position: 'relative', height: '95vh'}}>
+                                <MobileSearch/>
+                            </div>
+                        </div>
+                        :
+                        null
+                    }
+                   {
                        this.state.profileOpen 
                        ? 
                        <div className="profile-modal-overlay">
                           <div className="profile-container" style={{height: '100%'}}>
                               <PublicProfile history={this.props.history}
-                                editModal={() => {this.setState(() => ({notiOpen: false, profileOpen: true, whineOpen: false, updateOpen: true}))}}
+                                editModal={() => {this.setState(() => ({notiOpen: false, profileOpen: true, whineOpen: false, updateOpen: true, searchOpen: false}))}}
                               />
                           </div>
                       </div>
@@ -93,7 +106,7 @@ class UserProfile extends Component {
                         <div className="profile-modal-overlay">
                             <div className="profile-container" style={{height: '100%', backgroundColor: '#1da1f2'}}>
                                 <NotiModal
-                                    toggleWhine={() => {this.setState((p) => ({whineOpen: !p.whineOpen, notiOpen: false, profileOpen: false, updateOpen: false}))}}
+                                    toggleWhine={() => {this.setState((p) => ({whineOpen: !p.whineOpen, notiOpen: false, profileOpen: false, updateOpen: false, searchOpen: false}))}}
                                 />
                             </div>
                         </div>
@@ -107,7 +120,7 @@ class UserProfile extends Component {
                             <div className="profile-container" style={{backgroundColor: '#1da1f2', position: 'relative', height: '95vh'}}>
                                 <WhineView 
                                     callerType={callerType}
-                                    toggleWhine={() => {this.setState((p) => ({whineOpen: !p.whineOpen, notiOpen: false, profileOpen: false, updateOpen: false}))}}
+                                    toggleWhine={() => {this.setState((p) => ({whineOpen: !p.whineOpen, notiOpen: false, profileOpen: false, updateOpen: false, searchOpen: false}))}}
                                 />
                             </div>
                         </div>
@@ -120,7 +133,7 @@ class UserProfile extends Component {
                         <div className="profile-modal-overlay">
                             <div className="profile-container" style={{height: '95vh'}}>
                                 <EditInfo
-                                    closeAll={() => {this.setState(() => ({notiOpen: false, profileOpen: true, whineOpen: false, updateOpen: false}))}}
+                                    closeAll={() => {this.setState(() => ({notiOpen: false, profileOpen: true, whineOpen: false, updateOpen: false, searchOpen: false}))}}
                                 />
                             </div>
                         </div>
@@ -130,13 +143,15 @@ class UserProfile extends Component {
                     {
                         this.props.authenticated ? 
                         <AuthNavbar device={this.state.device}
-                         toggleProfile={() => {this.setState((p) => ({profileOpen: !p.profileOpen, whineOpen: false, notiOpen: false, updateOpen: false}))}}
-                         toggleNoti={() => {this.setState((p) => ({notiOpen: !p.notiOpen, profileOpen: false, whineOpen: false, updateOpen: false}))}}
-                         closeAll={() => {this.setState(() => ({notiOpen: false, profileOpen: false, whineOpen: false, updateOpen: false}))}}
+                            toggleProfile={() => {this.setState((p) => ({profileOpen: !p.profileOpen, whineOpen: false, notiOpen: false, updateOpen: false, searchOpen: false}))}}
+                            toggleNoti={() => {this.setState((p) => ({notiOpen: !p.notiOpen, profileOpen: false, whineOpen: false, updateOpen: false, searchOpen: false}))}}
+                            closeAll={() => {this.setState(() => ({notiOpen: false, profileOpen: false, whineOpen: false, updateOpen: false, searchOpen: false}))}}
+                            openSearch={() => {this.setState((p) => ({searchOpen: !p.searchOpen, notiOpen: false, profileOpen: false, whineOpen: false, editOpen: false}))}}
                          />
                          :
                          <UnAuthNabar device={this.state.device}
-                         closeAll={() => {this.setState(() => ({notiOpen: false, profileOpen: false, whineOpen: false, updateOpen: false}))}}
+                            closeAll={() => {this.setState(() => ({notiOpen: false, profileOpen: false, whineOpen: false, updateOpen: false}))}}
+                            openSearch={() => {this.setState((p) => ({searchOpen: !p.searchOpen, notiOpen: false, profileOpen: false, whineOpen: false, editOpen: false}))}}
                          />
                     }
                </div>
