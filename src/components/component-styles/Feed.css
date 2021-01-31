@@ -3,6 +3,8 @@
     margin: 0 auto;
     border: 1px solid #E6ECF0;
     border-top: none;
+    max-height: 92vh;
+    overflow-y: scroll;
 }
 .single-feed-container{
     margin: 0 auto;
@@ -157,6 +159,7 @@
 @media screen and (max-width: 1028px){
     .feed-container{
         max-width: 100%;
+        max-height: 95vh;
         position: absolute;
         animation: slide 0.3s ease-in-out forwards;
     }

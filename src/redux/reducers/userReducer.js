@@ -1,11 +1,23 @@
-import {SET_USER, SET_UNAUTHENTICATED, SET_AUTHENTICATED, USER_FEED, LOADING_USER,
-        LIKE_WHINE, UNLIKE_WHINE, RE_WHINE, LOADING_IMAGE, WHINE_LOADING, FOLLOW_USER_ACTION, UNFOLLOW_USER_ACTION,
-        ADD_LIKE_LIST, ADD_UNLIKE_LIST, ADD_REWHINE_LIST, MARK_NOTI_READ, LINK_SENT} from '../types';
+import {
+         SET_USER, SET_UNAUTHENTICATED, 
+         SET_AUTHENTICATED, USER_FEED, 
+         LOADING_USER, LIKE_WHINE, 
+         UNLIKE_WHINE, RE_WHINE, 
+         LOADING_IMAGE, WHINE_LOADING, 
+         FOLLOW_USER_ACTION, UNFOLLOW_USER_ACTION,
+         ADD_LIKE_LIST, ADD_UNLIKE_LIST, 
+         ADD_REWHINE_LIST, MARK_NOTI_READ, 
+         LINK_SENT, FETCHED_FEED, 
+         FETCHING_FEED, NO_MORE_DATA
+} from '../types';
 
 const initialState = {
     authenticated: false,
     message: {},
-    userFeed: {},
+    userFeed: [],
+    refs: [],
+    pagedFetching: false,
+    moreData: true,
     loading: false,
     emailLinkSent: {},
     imageLoading: false,
@@ -14,6 +26,30 @@ const initialState = {
 
 export default function (state = initialState, action){
     switch(action.type){
+        case FETCHING_FEED:
+            return{
+                ...state,
+                pagedFetching: true
+            }
+        case FETCHED_FEED:
+            let pagedFeed = action.payload.userFeed.sort(function(a, b) {
+                return (a.createdAt < b.createdAt) ? 1 : ((a.createdAt > b.createdAt) ? -1 : 0);
+            })
+            return{
+                ...state,
+                pagedFetching: false,
+                userFeed: [
+                    ...state.userFeed,
+                    ...pagedFeed
+                ],
+                refs: action.payload.refs
+            }
+        case NO_MORE_DATA: 
+            return{
+                ...state,
+                pagedFetching: false,
+                moreData: false
+            }
         case LINK_SENT:
             return{
                 ...state,
@@ -54,12 +90,16 @@ export default function (state = initialState, action){
                 ...state
             }
         case USER_FEED:
+            let normalFeed = action.payload.userFeed.sort(function(a, b) {
+                return (a.createdAt < b.createdAt) ? 1 : ((a.createdAt > b.createdAt) ? -1 : 0);
+            })
             return{
                 ...state,
                 loading: false,
                 imageLoading: false,
                 whineLoading: false,
-                ...action.payload
+                userFeed: [...normalFeed],
+                refs: [...action.payload.refs]
             }
         case LOADING_USER:
             return{

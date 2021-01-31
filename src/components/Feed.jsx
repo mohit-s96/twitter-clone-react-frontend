@@ -26,20 +26,20 @@ class Feed extends React.Component {
     }
     render(){
         const { user: {userFeed, message}} = this.props;
-    let sortedFeed = [];
-    if(userFeed.length > 0){
-        sortedFeed = userFeed.sort(function(a, b) {
-            return (a.createdAt < b.createdAt) ? 1 : ((a.createdAt > b.createdAt) ? -1 : 0);
-        });
-    }
+    // let sortedFeed = [];
+    // if(userFeed.length > 0){
+    //     sortedFeed = userFeed.sort(function(a, b) {
+    //         return (a.createdAt < b.createdAt) ? 1 : ((a.createdAt > b.createdAt) ? -1 : 0);
+    //     });
+    // }
     let whines = <h3>Loading</h3>;
     if(userFeed){
         whines = (userFeed.length > 0)
     ? 
-    (sortedFeed.map((x, i) => {
-        if(i !== (sortedFeed.length < 10 ? 3 : 9)){
+    (userFeed.map((x, i) => {
+        if(i !== (userFeed.length < 10 ? 3 : 9)){
             return (
-                <div className='single-feed-container' key={(x.reWhinedBy) ? `_rewhine_${x.whineId}` : x.whineId}>
+                <div className='single-feed-container' key={(x.reWhinedBy) ? `${Math.random()*10000 + x.whineId}` : x.whineId}>
                    <div className="one-whine" onClick={(e) => this.handleViewWhine(x.whineId, x.handle, e)}>
                    <div className="rewhine-message-container">{(x.reWhinedBy) ? (<div><span className='rewhine-icon'><FontAwesomeIcon icon={faRetweet}/></span><span className="rewhine-message">{x.reWhinedBy} re-whined</span></div>) : (null)}</div>
                     <div className="handle-container">

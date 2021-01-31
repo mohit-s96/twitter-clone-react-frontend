@@ -43,3 +43,6 @@ export const SEARCH_LOADING = 'SEARCH_LOADING';
 export const SEARCH_LOADED = 'SEARCH_LOADED';
 export const UPDATING_INFO = 'UPDATING_INFO';
 export const UPDATED_INFO = 'UPDATED_INFO';
+export const FETCHING_FEED = 'FETCHING_FEED';
+export const FETCHED_FEED = 'FETCHED_FEED';
+export const NO_MORE_DATA = 'NO_MORE_DATA';

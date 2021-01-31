@@ -2,7 +2,7 @@ import {SET_ERRORS, SET_USER, CLEAR_ERRORS, LOADING_UI, SET_UNAUTHENTICATED,
      USER_FEED, LOADING_USER, LIKE_WHINE, UNLIKE_WHINE, 
      RE_WHINE, LOADING_IMAGE, WHINE_LOADING, FOLLOW_ACTION, UNFOLLOW_ACTION,
     FOLLOW_USER_ACTION, UNFOLLOW_USER_ACTION, LIKE_WHINE_PUBLIC, UNLIKE_WHINE_PUBLIC, RE_WHINE_PUBLIC,
-    ADD_LIKE_LIST, ADD_UNLIKE_LIST, ADD_REWHINE_LIST, MARK_NOTI_READ, LINK_SENT} from '../types';
+    ADD_LIKE_LIST, ADD_UNLIKE_LIST, ADD_REWHINE_LIST, MARK_NOTI_READ, LINK_SENT, FETCHING_FEED, FETCHED_FEED, NO_MORE_DATA} from '../types';
 import {getPublicFeed} from './dataActions';
 import axios from 'axios';
 
@@ -77,11 +77,33 @@ export const getOnlyUserData = (x) => dispatch => {
          })
          .catch(err => console.log(err));   
 }
-
+export const getPaginatedFeed = (refs) => dispatch => {
+    dispatch({
+        type: FETCHING_FEED
+    })
+    axios.post('/paged', {refs: [...refs]})
+         .then(res => {
+             if(res.data.refs.length){
+                dispatch({
+                    type: FETCHED_FEED,
+                    payload: res.data
+                })
+             }else{
+                 dispatch({
+                     type: NO_MORE_DATA
+                 })
+             }
+         })   
+}
 export const getUserFeed = (x) => dispatch => {
     if(x > 0){
         axios.get('/home')
         .then(res => {
+            if(!res.data.refs.length){
+                dispatch({
+                    type: NO_MORE_DATA
+                })
+            }
             dispatch({
                 type: USER_FEED,
                 payload: res.data
