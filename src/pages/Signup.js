@@ -3,6 +3,7 @@ import Favicon from "../assets/static/favicon-blue.png";
 import "./page-styles/login.css";
 import loader from "../assets/static/ajax-loader-blue.gif";
 import { connect } from "react-redux";
+import Loader from "../components/Loader";
 import PropTypes from "prop-types";
 import { signupUser } from "../redux/actions/userActions";
 import { Helmet } from "react-helmet";
@@ -43,9 +44,9 @@ export class Signup extends Component {
   render() {
     const { errors } = this.state;
     const {
-      ui: { loading },
+      ui: { loading, netError },
     } = this.props;
-    return (
+    return !netError ? (
       <div className="login-wrapper">
         <Helmet>
           <title>Signup to Whiner!!</title>
@@ -146,6 +147,8 @@ export class Signup extends Component {
           </div>
         </div>
       </div>
+    ) : (
+      <Loader flag={true} />
     );
   }
 }

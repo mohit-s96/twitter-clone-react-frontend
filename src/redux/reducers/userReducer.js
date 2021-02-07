@@ -24,7 +24,9 @@ import {
 
 const initialState = {
   authenticated: false,
-  message: {},
+  message: {
+    notifications: [],
+  },
   userFeed: [],
   refs: [],
   pagedFetching: false,
@@ -93,7 +95,7 @@ export default function (state = initialState, action) {
       action.payload.message.notifications = [];
       return {
         ...state,
-        loading: true,
+        loading: false,
         authenticated: true,
         ...action.payload,
       };
@@ -184,11 +186,18 @@ export default function (state = initialState, action) {
         ...state,
       };
     case MARK_NOTI_READ:
-      state.message.notifications.forEach((x) => {
-        x.read = true;
+      let m = state.message.notifications.map((x) => {
+        return {
+          ...x,
+          read: true,
+        };
       });
       return {
         ...state,
+        message: {
+          ...state.message,
+          notifications: m,
+        },
       };
     case LOADING_IMAGE:
       return {

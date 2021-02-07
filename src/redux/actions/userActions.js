@@ -27,6 +27,7 @@ import {
   FETCHED_FEED,
   NO_MORE_DATA,
   ADD_LIVE_NOTI,
+  SET_NEWTWORK_ERROR,
 } from "../types";
 import { getPublicFeed } from "./dataActions";
 import axios from "axios";
@@ -40,17 +41,23 @@ export const loginUser = (userData, history) => (dispatch) => {
       axios.defaults.headers.common[
         "Authorization"
       ] = `Bearer ${res.data.token}`;
-      dispatch(getUserData("login"));
+      //   dispatch(getUserData("login"));
       dispatch({ type: CLEAR_ERRORS });
       history.push("/home");
     })
     .catch((err) => {
-      dispatch({
-        type: SET_ERRORS,
-        payload: err.response.data.errors
-          ? err.response.data.errors
-          : err.response.data,
-      });
+      if (err.toJSON().message === "Network Error") {
+        dispatch({
+          type: SET_NEWTWORK_ERROR,
+        });
+      } else {
+        dispatch({
+          type: SET_ERRORS,
+          payload: err.response.data.errors
+            ? err.response.data.errors
+            : err.response.data,
+        });
+      }
     });
 };
 
@@ -74,12 +81,18 @@ export const signupUser = (userData, history, mail) => (dispatch) => {
       history.push("/verify");
     })
     .catch((err) => {
-      dispatch({
-        type: SET_ERRORS,
-        payload: err.response.data.errors
-          ? err.response.data.errors
-          : err.response.data,
-      });
+      if (err.toJSON().message === "Network Error") {
+        dispatch({
+          type: SET_NEWTWORK_ERROR,
+        });
+      } else {
+        dispatch({
+          type: SET_ERRORS,
+          payload: err.response.data.errors
+            ? err.response.data.errors
+            : err.response.data,
+        });
+      }
     });
 };
 
@@ -95,7 +108,14 @@ export const getUserData = () => (dispatch) => {
       //  let x = ((res.data.message.whineCount > 0) || (res.data.message.following > 0)) ? 1 : 0;
       dispatch(getUserFeed(1));
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      if (err.toJSON().message === "Network Error") {
+        dispatch({
+          type: SET_NEWTWORK_ERROR,
+        });
+      }
+      console.log(err);
+    });
 };
 export const getOnlyUserData = (x) => (dispatch) => {
   if (x === "reload") {
@@ -105,7 +125,7 @@ export const getOnlyUserData = (x) => (dispatch) => {
     .get("/userauth")
     .then((res) => {
       dispatch({
-        type: USER_FEED,
+        type: SET_USER,
         payload: res.data,
       });
     })

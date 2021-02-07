@@ -38,7 +38,11 @@ class Feed extends React.Component {
     //         return (a.createdAt < b.createdAt) ? 1 : ((a.createdAt > b.createdAt) ? -1 : 0);
     //     });
     // }
-    let whines = <h3>Loading</h3>;
+    let whines = (
+      <div className="single-feed-container">
+        <h3>Loading</h3>;
+      </div>
+    );
     if (userFeed) {
       whines =
         userFeed.length > 0 ? (
