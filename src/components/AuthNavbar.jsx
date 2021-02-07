@@ -45,6 +45,8 @@ function AuthNavbar(props) {
         .collection("users")
         .doc(docId)
         .collection("notifications")
+        .orderBy("createdAt", "desc")
+        .limit(15)
         .onSnapshot((res) => {
           res.docChanges().forEach((x) => {
             if (x.type === "added") {

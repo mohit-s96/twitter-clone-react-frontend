@@ -1,32 +1,33 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html, body {
+html,
+body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.app{
+.app {
   position: relative;
 }
-#no-mobile{
+#no-mobile {
   height: 100vh;
   width: 100vh;
   z-index: 20;
   background-color: aquamarine;
   display: none;
 }
-#no-mobile::after{
-  content: 'Not supported on Mobile..open on desktop';
+#no-mobile::after {
+  content: "Not supported on Mobile..open on desktop";
   color: black;
   font-size: 3rem;
 }
-@media (max-width: 1028px){
+@media (max-width: 1028px) {
   /* #root {
     display: none;
   }
@@ -34,4 +35,41 @@ html, body {
   #no-mobile {
     display: block;
   } */
+}
+div.DraftEditor-root {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 2rem;
+  width: 80%;
+  font-size: 0.9em;
+  color: rgb(70, 67, 67);
+  border: none;
+  /* background-color: #15202B; */
+  border-bottom: 1px solid #000000;
+  padding: 20px;
+  margin-bottom: 4rem;
+  outline: none;
+}
+div.DraftEditor-root:focus::placeholder {
+  color: #353330cc;
+}
+div.DraftEditor-root:empty {
+  border-bottom: 1px solid rgb(151, 150, 150);
+}
+div.DraftEditor-root:focus {
+  border-bottom: 1px solid #000000;
+}
+div.amazing-test-feature:empty:before {
+  content: attr(data-placeholder);
+  color: rgb(151, 150, 150);
+  cursor: text;
+}
+div.DraftEditor-root:focus:empty:before {
+  color: #666462cc;
+}
+
+div.DraftEditor-editorContainer,
+div.public-DraftEditor-content {
+  height: 100%;
 }

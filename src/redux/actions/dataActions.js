@@ -14,6 +14,7 @@ import {
   UPDATING_INFO,
   UPDATED_INFO,
   SET_NEWTWORK_ERROR,
+  MENTIONS_LOADED,
 } from "../types";
 import { getOnlyUserData } from "./userActions";
 import axios from "axios";
@@ -131,15 +132,28 @@ export const loadSuggestions = () => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-export const getSearchAutoComplete = (keyword) => (dispatch) => {
-  dispatch({ type: SEARCH_LOADING });
-  axios
-    .post("/userlist", { searchWords: keyword })
-    .then((res) => {
-      dispatch({
-        type: SEARCH_LOADED,
-        payload: res.data,
-      });
-    })
-    .catch((err) => console.log(err));
+export const getSearchAutoComplete = (keyword, flag) => (dispatch) => {
+  if (!flag) {
+    dispatch({ type: SEARCH_LOADING });
+    axios
+      .post("/userlist", { searchWords: keyword })
+      .then((res) => {
+        console.log(res.data);
+        dispatch({
+          type: SEARCH_LOADED,
+          payload: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
+  } else {
+    axios
+      .post("/userlist", { searchWords: keyword })
+      .then((res) => {
+        dispatch({
+          type: MENTIONS_LOADED,
+          payload: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
+  }
 };
