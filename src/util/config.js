@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
+import "firebase/messaging";
 let app;
 try {
   app = firebase.initializeApp({
@@ -17,3 +18,4 @@ try {
 }
 
 export const db = app.firestore();
+export const messaging = app.messaging();

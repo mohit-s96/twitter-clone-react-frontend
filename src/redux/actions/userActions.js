@@ -60,8 +60,29 @@ export const loginUser = (userData, history) => (dispatch) => {
       }
     });
 };
-
+export const refreshMsgToken = (token) => {
+  axios
+    .post("/msgtoken", { token })
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 export const logoutUser = () => (dispatch) => {
+  if (window.navigator && navigator.serviceWorker) {
+    navigator.serviceWorker.getRegistrations().then(function (registrations) {
+      for (let registration of registrations) {
+        if (
+          registration.scope ===
+          "http://localhost:3000/firebase-cloud-messaging-push-scope"
+        ) {
+          registration.unregister();
+        }
+      }
+    });
+  }
   localStorage.clear();
   delete axios.defaults.headers.common["Authorization"];
   window.location.href = "/";

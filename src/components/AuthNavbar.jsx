@@ -14,10 +14,11 @@ import {
   logoutUser,
   markNotiRead,
   addNoti,
+  refreshMsgToken,
 } from "../redux/actions/userActions";
 import { getSearchAutoComplete } from "../redux/actions/dataActions";
 import SearchList from "../components/SearchList";
-import { db } from "../util/config";
+import { db, messaging } from "../util/config";
 import NotiModal from "../components/NotiModal";
 import "./component-styles/AuthNavbar.css";
 
@@ -38,6 +39,16 @@ function AuthNavbar(props) {
           setDocId(docid);
         });
     }
+  }, []);
+  useEffect(() => {
+    window.Notification.requestPermission()
+      .then(() => {
+        return messaging.getToken();
+      })
+      .then((token) => {
+        props.refreshMsgToken(token);
+      })
+      .catch((err) => console.log(err));
   }, []);
   useEffect(() => {
     if (docId) {
@@ -227,6 +238,7 @@ const mapActionsToProps = {
   markNotiRead,
   getSearchAutoComplete,
   addNoti,
+  refreshMsgToken,
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(AuthNavbar);
