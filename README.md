@@ -14,39 +14,39 @@ All component based custom CSS without any framework :)
 
 ### Current Features
 
-* Authentication
+- Authentication
 
-* Create and post
+- Create and post
 
-* Delete posts
+- Delete posts
 
-* Likes and repost other user's posts
+- Likes and repost other user's posts
 
-* Follow other users
+- Follow other users
 
-* Custom feed of latest posts from your following list
+- Custom feed of latest posts from your following list
 
-* Follow suggestions for newly registered users
+- Follow suggestions for newly registered users
 
-* Reply to posts
+- Reply to posts
 
-* Notifications on like, comment, reposts
+- Notifications on like, comment, reposts
 
-* Mention other users in post using '@'
+- Mention other users in post using '@'
 
-* Add about me details including location / personal social media etc
+- Add about me details including location / personal social media etc
 
-* Fully working search bar with autocomplete search results
+- Fully working search bar with autocomplete search results
 
-* View any users profile and all their posts
+- View any users profile and all their posts
 
-* View a post and all its comments
+- View a post and all its comments
 
-* Authentication based access to all features
+- Authentication based access to all features
 
 ## Firebase
 
-This app is powered by Firebase utilizing service for Authentication, Database, Storage and Functions.
+This app is powered by using Firebase functions as a REST endpoint. It utilizes service for Authentication, Database, Storage and Functions.
 
 ## Why not put the Firebase functions with this ?
 
@@ -68,22 +68,24 @@ To launch the webpack dev server if you have a data endpoint setup
 
 ## What platform does it work on?
 
-As of now, only desktops/laptops or slightly bigger screens. I plan on adding the styling for mobile in the future.
+As of now, desktops/laptops/mobile or slightly bigger screens
 
 ## What features/functionalities I would like to add ?
 
-* Making comments count as actual posts and show relevant comments  on feed.
+- [ ] Making comments count as actual posts and show relevant comments on feed.
 
-* Un-repost function (I forgot to implement this).
+- [ ] Un-repost function (I forgot to implement this).
 
-* More streamlined user feed.
+- [x] More streamlined user feed.
 
-* Load as you scroll.
+- [x] Load as you scroll.
 
-* Improving some aspects of design including support for mobile and smaller screens.
+- [x] Improving some aspects of design including support for mobile and smaller screens.
 
-* Adding like and repost list for a post. [Only needed to be added on frontend].
+- [ ] Adding like and repost list for a post. [Only needed to be added on frontend].
 
-* Adding delete option for comments.
+- [ ] Adding delete option for comments.
 
-* Removing a notification if the change which created it was undone(eg after unlike)
+- [ ] Removing a notification if the change which created it was undone(eg after unlike)
+
+- [x] Supports mentions suggestions while typing "@"

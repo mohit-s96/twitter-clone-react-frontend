@@ -6,6 +6,10 @@
     transform: translate(50%, -50%);
     text-align: center;
 }
+.flex-home-mobile{
+    position: relative;
+}
+
 .join-container a{
     text-decoration: none;
     width: 100%;
@@ -41,4 +45,27 @@
 }
 .join-container .signup a{
     color: black;
+}
+@media (max-width: 1028px){
+    .join-container{
+        width: 100%;
+        transform: unset;
+        position: static;
+    }
+    .flex-home-mobile{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 70vh;
+    }
+    .headerj img{
+        transform: unset !important;
+    }
+    .join-container .message{
+        transform: unset;
+    }
+    .btn{
+        width: 80%;
+    }
 }

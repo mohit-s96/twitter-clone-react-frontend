@@ -13,7 +13,7 @@ function SearchList(props) {
                 :
                 props.autoComplete.map(user => {
                     return (
-                        <div className="single-search-item">
+                        <div className="single-search-item" key={Math.random()*10000}>
                             <div className="search-img">
                                 <Link to={`/user/${user.handle}`}><img src={user.imgUrl} alt="avatar"/></Link>
                             </div>

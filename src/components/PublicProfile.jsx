@@ -138,7 +138,11 @@ class PublicProfile extends React.Component{
     }
 
     handleEditState = () => {
-        document.getElementById('overlay2').style.display = 'block';
+        if(this.props.editModal){
+            this.props.editModal();
+        }else{
+            document.getElementById('overlay2').style.display = 'block';
+        }
     }
 }
 

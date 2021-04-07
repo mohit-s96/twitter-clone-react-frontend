@@ -1,0 +1,672 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "h:\\Programming\\my_dev\\whiner-frontend\\whiner-client",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2020-11-01 17:13:50",
+            "filesum": 97,
+            "codesum": 18713,
+            "commentsum": 191,
+            "blanksum": 285,
+            "statistics": {
+                ".jsx": {
+                    "code": 1731,
+                    "comment": 16,
+                    "blank": 134
+                },
+                ".js": {
+                    "code": 1214,
+                    "comment": 67,
+                    "blank": 88
+                },
+                ".css": {
+                    "code": 1286,
+                    "comment": 56,
+                    "blank": 19
+                },
+                ".svg": {
+                    "code": 71,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".md": {
+                    "code": 37,
+                    "comment": 12,
+                    "blank": 31
+                },
+                ".json": {
+                    "code": 14256,
+                    "comment": 0,
+                    "blank": 4
+                },
+                ".txt": {
+                    "code": 6,
+                    "comment": 39,
+                    "blank": 4
+                },
+                ".html": {
+                    "code": 28,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".log": {
+                    "code": 38,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".map": {
+                    "code": 4,
+                    "comment": 0,
+                    "blank": 0
+                },
+                "": {
+                    "code": 23,
+                    "comment": 1,
+                    "blank": 5
+                },
+                ".cache": {
+                    "code": 19,
+                    "comment": 0,
+                    "blank": 0
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": ".firebase\\hosting.YnVpbGQ.cache"
+                },
+                {
+                    "blank": 0,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": ".firebaserc"
+                },
+                {
+                    "blank": 5,
+                    "code": 18,
+                    "comment": 1,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 1,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "build\\asset-manifest.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "build\\debug.log"
+                },
+                {
+                    "filename": "build\\favicon.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\index.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "build\\manifest.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "build\\precache-manifest.33d70c8e4bf93e85e60ac64b8bb4b0ad.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 1,
+                    "filename": "build\\robots.txt"
+                },
+                {
+                    "blank": 8,
+                    "code": 14,
+                    "comment": 17,
+                    "filename": "build\\service-worker.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "build\\static\\css\\main.dd41bbba.chunk.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\css\\main.dd41bbba.chunk.css.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "build\\static\\js\\2.c9eef409.chunk.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 0,
+                    "comment": 37,
+                    "filename": "build\\static\\js\\2.c9eef409.chunk.js.LICENSE.txt"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\js\\2.c9eef409.chunk.js.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "build\\static\\js\\main.a75117b6.chunk.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\js\\main.a75117b6.chunk.js.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "build\\static\\js\\runtime-main.12fb4186.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\js\\runtime-main.12fb4186.js.map"
+                },
+                {
+                    "filename": "build\\static\\media\\favicon-blue.c4d9d440.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "build\\static\\media\\icon.5712dbf2.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "debug.log"
+                },
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "firebase.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 14123,
+                    "comment": 0,
+                    "filename": "package-lock.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "public\\debug.log"
+                },
+                {
+                    "filename": "public\\favicon.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "public\\index.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "public\\manifest.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 1,
+                    "filename": "public\\robots.txt"
+                },
+                {
+                    "blank": 31,
+                    "code": 37,
+                    "comment": 12,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 1,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "src\\App.css"
+                },
+                {
+                    "blank": 7,
+                    "code": 49,
+                    "comment": 1,
+                    "filename": "src\\App.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\App.test.js"
+                },
+                {
+                    "filename": "src\\assets\\static\\ajax-loader-bar.gif",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\static\\ajax-loader-blue.gif",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\static\\ajax-loader-secondary.gif",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\static\\ajax-loader.gif",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\static\\favicon-blue.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\static\\favicon.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\static\\icon-medium.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src\\assets\\static\\icon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "src\\assets\\static\\logo.svg"
+                },
+                {
+                    "filename": "src\\assets\\static\\no-img.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 11,
+                    "code": 147,
+                    "comment": 2,
+                    "filename": "src\\components\\AuthNavbar.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "src\\components\\Comments.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 104,
+                    "comment": 1,
+                    "filename": "src\\components\\component-styles\\AuthNavbar.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "src\\components\\component-styles\\EditInfo.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 152,
+                    "comment": 2,
+                    "filename": "src\\components\\component-styles\\Feed.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 28,
+                    "comment": 0,
+                    "filename": "src\\components\\component-styles\\Footer.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src\\components\\component-styles\\icon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 44,
+                    "comment": 0,
+                    "filename": "src\\components\\component-styles\\Join.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "src\\components\\component-styles\\Loader.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 48,
+                    "comment": 19,
+                    "filename": "src\\components\\component-styles\\Navbar.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 127,
+                    "comment": 0,
+                    "filename": "src\\components\\component-styles\\NotiModal.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 60,
+                    "comment": 1,
+                    "filename": "src\\components\\component-styles\\PostWhine.css"
+                },
+                {
+                    "blank": 11,
+                    "code": 200,
+                    "comment": 11,
+                    "filename": "src\\components\\component-styles\\Profile.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 33,
+                    "comment": 0,
+                    "filename": "src\\components\\component-styles\\Welcome.css"
+                },
+                {
+                    "blank": 3,
+                    "code": 303,
+                    "comment": 21,
+                    "filename": "src\\components\\component-styles\\WhineView.css"
+                },
+                {
+                    "blank": 6,
+                    "code": 79,
+                    "comment": 0,
+                    "filename": "src\\components\\EditInfo.jsx"
+                },
+                {
+                    "blank": 16,
+                    "code": 189,
+                    "comment": 0,
+                    "filename": "src\\components\\Feed.jsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 67,
+                    "comment": 0,
+                    "filename": "src\\components\\FollowSuggestion.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src\\components\\Footer.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\components\\Join.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\Loader.jsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 61,
+                    "comment": 0,
+                    "filename": "src\\components\\Navbar.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 87,
+                    "comment": 0,
+                    "filename": "src\\components\\NotiModal.jsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 61,
+                    "comment": 0,
+                    "filename": "src\\components\\PostWhine.jsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 96,
+                    "comment": 4,
+                    "filename": "src\\components\\Profile.jsx"
+                },
+                {
+                    "blank": 16,
+                    "code": 237,
+                    "comment": 0,
+                    "filename": "src\\components\\PublicFeed.jsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 160,
+                    "comment": 3,
+                    "filename": "src\\components\\PublicProfile.jsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "src\\components\\SearchList.jsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 70,
+                    "comment": 0,
+                    "filename": "src\\components\\UnAuthNavbar.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 18,
+                    "comment": 1,
+                    "filename": "src\\components\\Welcome.jsx"
+                },
+                {
+                    "blank": 15,
+                    "code": 224,
+                    "comment": 0,
+                    "filename": "src\\components\\WhineView.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 11,
+                    "comment": 3,
+                    "filename": "src\\index.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "src\\pages\\Home.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 84,
+                    "comment": 0,
+                    "filename": "src\\pages\\Login.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\pages\\NotFound.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 89,
+                    "comment": 0,
+                    "filename": "src\\pages\\page-styles\\login.css"
+                },
+                {
+                    "blank": 11,
+                    "code": 93,
+                    "comment": 0,
+                    "filename": "src\\pages\\Signup.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 70,
+                    "comment": 1,
+                    "filename": "src\\pages\\UserHome.jsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 83,
+                    "comment": 2,
+                    "filename": "src\\pages\\UserProfile.jsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 110,
+                    "comment": 1,
+                    "filename": "src\\redux\\actions\\dataActions.js"
+                },
+                {
+                    "blank": 11,
+                    "code": 212,
+                    "comment": 1,
+                    "filename": "src\\redux\\actions\\userActions.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 131,
+                    "comment": 2,
+                    "filename": "src\\redux\\reducers\\dataReducer.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "src\\redux\\reducers\\uiReducer.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 130,
+                    "comment": 0,
+                    "filename": "src\\redux\\reducers\\userReducer.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 19,
+                    "comment": 1,
+                    "filename": "src\\redux\\store.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 39,
+                    "comment": 1,
+                    "filename": "src\\redux\\types.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 95,
+                    "comment": 31,
+                    "filename": "src\\serviceWorker.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 4,
+                    "filename": "src\\setupTests.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src\\util\\ActiveRoute.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 14,
+                    "comment": 3,
+                    "filename": "src\\util\\AuthRoute.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "src\\util\\parseBody.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\util\\throttle_func.js"
+                }
+            ]
+        }
+    ]
+}

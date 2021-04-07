@@ -1,5 +1,6 @@
 .post-input{
     position: relative;
+    /* margin-top: 8px; */
     border-bottom: 10px solid #E6ECF0;
 }
 .post-title{
@@ -58,4 +59,9 @@ div.post-message:focus:empty:before{
     left: 10%;
     bottom: 8%;
     transform: translateY(-32%);
+}
+@media screen and (max-width: 1028px){
+    .post-title{
+        width: 90%;
+    }
 }

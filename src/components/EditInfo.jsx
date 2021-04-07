@@ -69,7 +69,11 @@ class EditInfo extends Component {
     handleUpdate = () => {
         let body = this.state;
         this.props.updateUserInfo(body, this.props.message.handle);
-
+        setTimeout(() => {
+            if(this.props.closeAll){
+                this.props.closeAll();
+            }
+        }, 600);
     }
 }
 
